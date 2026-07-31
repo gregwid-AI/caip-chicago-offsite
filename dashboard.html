@@ -152,20 +152,20 @@
 <!-- Summary Stats -->
 <div class="summary-row">
   <div class="stat-card">
-    <div class="stat-value green" id="stat-done">6</div>
+    <div class="stat-value green" id="stat-done">10</div>
     <div class="stat-label">Tasks Completed</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value indigo" id="stat-running">1</div>
+    <div class="stat-value indigo" id="stat-running">0</div>
     <div class="stat-label">Agents Running</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value amber" id="stat-pending">2</div>
+    <div class="stat-value amber" id="stat-pending">1</div>
     <div class="stat-label">Awaiting Action</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value violet" id="stat-drafts">2</div>
-    <div class="stat-label">Drafts Ready</div>
+    <div class="stat-value violet" id="stat-drafts">1</div>
+    <div class="stat-label">Drafts/Planning</div>
   </div>
 </div>
 
@@ -174,8 +174,8 @@
   <div class="card" style="grid-column:1/-1; border-color: rgba(16,185,129,0.4);">
     <div class="card-header">
       <div>
-        <div class="card-title">?? App Published � Live URL</div>
-        <div class="card-subtitle">GitHub Pages � gregwid-AI/caip-chicago-offsite</div>
+        <div class="card-title">?? App Published � Live URL</div>
+        <div class="card-subtitle">GitHub Pages � gregwid-AI/caip-chicago-offsite</div>
       </div>
       <span class="status-badge status-done"><span class="status-dot dot-done"></span> Live</span>
     </div>
@@ -185,31 +185,31 @@
     </div>
     <div class="steps" style="margin-top:12px;">
       <div class="step"><div class="step-icon step-done-icon">?</div><span class="step-text-done">Repo created: gregwid-AI/caip-chicago-offsite</span></div>
-      <div class="step"><div class="step-icon step-done-icon">?</div><span class="step-text-done">GitHub Pages enabled � building (~60s)</span></div>
+      <div class="step"><div class="step-icon step-done-icon">?</div><span class="step-text-done">GitHub Pages enabled � building (~60s)</span></div>
       <div class="step"><div class="step-icon step-run-icon">?</div><span class="step-text-run">Embed URL in calendar invite + team email</span></div>
     </div>
   </div>
 
-  <!-- App Overhaul Agent -->
+  <!-- Agenda Planning -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">🎨 App Overhaul Agent</div>
-        <div class="card-subtitle">caip-app-v3 · general-purpose</div>
+        <div class="card-title">📋 Agenda Planning Phase</div>
+        <div class="card-subtitle">Cross-functional planning · Travis Coleman leading</div>
       </div>
-      <span class="status-badge status-running"><span class="status-dot dot-running"></span> Running</span>
+      <span class="status-badge status-running"><span class="status-dot dot-running"></span> Planning</span>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-label"><span>Rebuilding CAIP_LT_Chicago_Offsite_App.html</span><span id="appProgress">~60%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="appProgressBar" style="width:60%"></div></div>
+      <div class="progress-label"><span>Awaiting planning input from Travis Coleman</span><span id="planProgress">~20%</span></div>
+      <div class="progress-track"><div class="progress-fill pending" id="planProgressBar" style="width:20%"></div></div>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Read existing file</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Applied new color palette (indigo/violet dark)</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Updated arrival instructions</span></div>
-      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Adding Cabra + voting feature</span></div>
-      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Editable agenda with localStorage</span></div>
-      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Remove Actions tab + save file</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Email sent to Travis Coleman</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Planning schedule locked: 3 meetings</span></div>
+      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Call 1: Tues/Wed Aug 4–8 (30 min)</span></div>
+      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Call 2: Tues Aug 11–15 (30 min)</span></div>
+      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Final check-in: Fri Aug 15 (30 min)</span></div>
+      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Awaiting recommendations from Travis</span></div>
     </div>
   </div>
 
@@ -244,7 +244,7 @@
     <div class="card-header">
       <div>
         <div class="card-title">🪪 Badge Access Request</div>
-        <div class="card-subtitle">13 team members · Sent to LaVonne Smith</div>
+        <div class="card-subtitle">14 team members (added Anthony Cafarelli) · LaVonne Smith</div>
       </div>
       <span class="status-badge status-done"><span class="status-dot dot-done"></span> Sent</span>
     </div>
@@ -252,8 +252,9 @@
       <div class="progress-track"><div class="progress-fill done" style="width:100%"></div></div>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Pulled 13-member roster from Teams group chat</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Sent access request to v-lsmith@microsoft.com</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Original 13-member roster from Teams group chat</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Added Anthony Cafarelli (acafarel@microsoft.com)</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Updated access request to v-lsmith@microsoft.com</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">CC'd Ester DeKeLaita (v-esdeke@microsoft.com)</span></div>
     </div>
   </div>
@@ -263,30 +264,33 @@
     <div class="card-header">
       <div>
         <div class="card-title">📧 EBC Room Follow-Up</div>
-        <div class="card-subtitle">Sent to Ester DeKeLaita · CBRE Facilities</div>
+        <div class="card-subtitle">Ester DeKeLaita · CBRE Facilities</div>
       </div>
       <span class="status-badge status-done"><span class="status-dot dot-done"></span> Sent</span>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">EBC room request — fits 13–15 attendees</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Initial EBC room request — fits 13–15 attendees</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Updated capacity to 14 (added Anthony Cafarelli)</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Requested 1–2 breakout rooms for side calls</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">CC# 10225172 included</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">CC# 10225172 included in all requests</span></div>
     </div>
   </div>
 
-  <!-- Planning App v1 -->
+  <!-- Planning App Live -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">📱 Planning App Built</div>
-        <div class="card-subtitle">CAIP_LT_Chicago_Offsite_App.html</div>
+        <div class="card-title">📱 Planning App v4 Live</div>
+        <div class="card-subtitle">CAIP_LT_Chicago_Offsite_App.html · GitHub Pages</div>
       </div>
-      <span class="status-badge status-running"><span class="status-dot dot-running"></span> Updating</span>
+      <span class="status-badge status-done"><span class="status-dot dot-done"></span> Live</span>
     </div>
     <div class="steps">
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v1: 6-tab mobile app (agenda, travel, logistics, evening)</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v2: Links, arrival instructions, succinct travel section</span></div>
-      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">v3: New design, voting, editable agenda, Cabra</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v3: New design, voting, editable agenda, Cabra top pick</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v4: Chicago city guide tab, Fairmont info, feedback button</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Published & accessible at gregwid-ai.github.io/caip-chicago-offsite/</span></div>
     </div>
   </div>
 
@@ -295,36 +299,39 @@
 <p class="section-title">Drafts Ready to Send</p>
 <div class="grid">
 
-  <!-- Calendar Invite Draft -->
+  <!-- Calendar Invite -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">📅 Calendar Invite Draft</div>
-        <div class="card-subtitle">All 12 team members · Aug 17–18 · Teams meeting</div>
+        <div class="card-title">📅 Calendar Invite Sent</div>
+        <div class="card-subtitle">14 attendees (added Anthony) · Aug 17–18</div>
       </div>
-      <span class="status-badge status-draft"><span class="status-dot dot-draft"></span> Draft</span>
+      <span class="status-badge status-done"><span class="status-dot dot-done"></span> Sent</span>
     </div>
     <div class="steps">
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Subject: RCG CAIP LT Offsite – FY27 Execution | Chicago</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Teams meeting link included</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Arrival instructions, travel table, agenda themes</span></div>
-      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Embed app URL once final → then send</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Teams meeting link + Fairmont hotel info included</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">App URL, dashboard link, Cytric booking CTA</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Updated with Anthony Cafarelli as attendee</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Live & shared with all invitees</span></div>
     </div>
   </div>
 
-  <!-- Email Draft -->
+  <!-- Teams Message Sent -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">✉️ Team Email Draft</div>
-        <div class="card-subtitle">Outlook Drafts · All 12 teammates</div>
+        <div class="card-title">💬 Teams Group Message Sent</div>
+        <div class="card-subtitle">Group chat · Summary + resource links</div>
       </div>
-      <span class="status-badge status-draft"><span class="status-dot dot-draft"></span> Draft</span>
+      <span class="status-badge status-done"><span class="status-dot dot-done"></span> Sent</span>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Subject: RCG CAIP LT Offsite – FY27 Execution | Aug 17–18, Chicago</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Travel table, hotel block, evening event, agenda</span></div>
-      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Add app URL once final → then send</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Completion summary + key milestones listed</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Planning app URL (gregwid-ai.github.io/caip-chicago-offsite/)</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Dashboard URL included for agent status tracking</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Fairmont booking CTA via Cytric (aka.ms/cytric)</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Direct message sent to Anthony Cafarelli separately</span></div>
     </div>
   </div>
 
@@ -336,17 +343,17 @@
 <div class="log-section">
   <p class="section-title">Activity Log</p>
   <div class="log-entries" id="logEntries">
-    <div class="log-entry"><div class="log-time">12:31 PM</div><div class="log-msg"><strong>app-overhaul</strong> agent launched — major redesign in progress<span class="tag tag-running">Running</span></div></div>
-    <div class="log-entry"><div class="log-time">12:22 PM</div><div class="log-msg"><strong>Calendar invite</strong> drafted with Teams meeting link for Aug 17–18<span class="tag tag-draft">Draft</span></div></div>
-    <div class="log-entry"><div class="log-time">12:21 PM</div><div class="log-msg"><strong>Email draft</strong> saved to Outlook Drafts — 12 recipients<span class="tag tag-draft">Draft</span></div></div>
-    <div class="log-entry"><div class="log-time">12:20 PM</div><div class="log-msg">EBC room follow-up email sent to <strong>Ester DeKeLaita</strong><span class="tag tag-done">Sent</span></div></div>
-    <div class="log-entry"><div class="log-time">12:19 PM</div><div class="log-msg"><strong>Book A Room form submitted</strong> — "Thank You, form submitted successfully"<span class="tag tag-done">Done</span></div></div>
-    <div class="log-entry"><div class="log-time">12:18 PM</div><div class="log-msg">CC# <strong>10225172</strong> entered, policy agreed, form ready to submit</div></div>
-    <div class="log-entry"><div class="log-time">12:04 PM</div><div class="log-msg">Meeting times set: <strong>1:00 PM – 4:00 PM CT</strong> on form</div></div>
-    <div class="log-entry"><div class="log-time">11:59 AM</div><div class="log-msg">App v2 complete — links, arrival card, succinct travel section<span class="tag tag-done">Done</span></div></div>
-    <div class="log-entry"><div class="log-time">11:45 AM</div><div class="log-msg"><strong>Badge access email sent</strong> — 13 members, to LaVonne Smith (CBRE)<span class="tag tag-done">Sent</span></div></div>
-    <div class="log-entry"><div class="log-time">Earlier</div><div class="log-msg"><strong>Book A Room form</strong> pages 1–4 completed (building, meeting info, catering, room config)</div></div>
-    <div class="log-entry"><div class="log-time">Earlier</div><div class="log-msg"><strong>Planning app v1</strong> built — 27KB, 6 tabs, full offsite content<span class="tag tag-done">Done</span></div></div>
+  <div class="log-entry"><div class="log-time">1:43 PM</div><div class="log-msg"><strong>Planning schedule locked</strong> — 3 calls: Tues/Wed Aug 4–8, Tues Aug 11–15, Fri Aug 15<span class="tag tag-done">Scheduled</span></div></div>
+  <div class="log-entry"><div class="log-time">1:39 PM</div><div class="log-msg"><strong>Teams message sent</strong> to group chat — summary + app, dashboard, Cytric links<span class="tag tag-done">Sent</span></div></div>
+  <div class="log-entry"><div class="log-time">1:38 PM</div><div class="log-msg"><strong>Direct message sent to Anthony Cafarelli</strong> — welcome to offsite + resources<span class="tag tag-done">Sent</span></div></div>
+  <div class="log-entry"><div class="log-time">1:35 PM</div><div class="log-msg">EBC room capacity updated to 14 attendees (added <strong>Anthony Cafarelli</strong>)<span class="tag tag-done">Updated</span></div></div>
+  <div class="log-entry"><div class="log-time">1:31 PM</div><div class="log-msg"><strong>Badge access updated</strong> — now 14 members including Anthony Cafarelli<span class="tag tag-done">Sent</span></div></div>
+  <div class="log-entry"><div class="log-time">1:28 PM</div><div class="log-msg">Email sent to <strong>Travis Coleman</strong> — agenda planning input request<span class="tag tag-done">Sent</span></div></div>
+  <div class="log-entry"><div class="log-time">1:00 PM</div><div class="log-msg"><strong>Calendar invite sent</strong> with app URL, dashboard, teams meeting link, Fairmont info<span class="tag tag-done">Live</span></div></div>
+  <div class="log-entry"><div class="log-time">12:45 PM</div><div class="log-msg">App v4 published — Chicago guide + Fairmont + feedback button<span class="tag tag-done">Live</span></div></div>
+  <div class="log-entry"><div class="log-time">12:30 PM</div><div class="log-msg">Dashboard published to GitHub Pages (live at .../dashboard.html)<span class="tag tag-done">Live</span></div></div>
+  <div class="log-entry"><div class="log-time">12:25 PM</div><div class="log-msg">App v3 final — indigo/violet dark palette, Cabra, voting, editable agenda<span class="tag tag-done">Done</span></div></div>
+  <div class="log-entry"><div class="log-time">Earlier</div><div class="log-msg"><strong>Book A Room form</strong> submitted successfully with CC# 10225172<span class="tag tag-done">Done</span></div></div>
   </div>
 </div>
 
