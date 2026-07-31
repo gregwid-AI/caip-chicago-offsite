@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RCG CAIP LT Offsite - Chicago</title>
+  <link rel="icon" href="data:,">
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-primary: #0f1117;
+      --bg-secondary: #1a1d2e;
+      --bg-card: #1e2235;
+      --bg-card-hover: #252840;
+      --accent: #6366f1;
+      --accent-2: #8b5cf6;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(99,102,241,0.15);
+      --border-hover: rgba(99,102,241,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05) inset;
+      --shadow-hover: 0 8px 40px rgba(99,102,241,0.2);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --link: #818cf8;
+    }
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg-primary: #f0f4ff;
+      --bg-secondary: #e8edff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f7ff;
+      --accent: #6366f1;
+      --accent-2: #8b5cf6;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      --text-primary: #1e1b4b;
+      --text-secondary: #4338ca;
+      --text-muted: #6366f1;
+      --border: rgba(99,102,241,0.2);
+      --border-hover: rgba(99,102,241,0.5);
+      --shadow: 0 4px 24px rgba(99,102,241,0.08), 0 1px 0 rgba(255,255,255,0.8) inset;
+      --shadow-hover: 0 8px 40px rgba(99,102,241,0.15);
+      --success: #059669;
+      --warning: #d97706;
+      --link: #4f46e5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.45;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button, input, textarea { font: inherit; color: var(--text-primary); }
+    .app { max-width: 980px; margin: 0 auto; padding: 16px 16px 96px; }
+    .hero {
+      position: relative; overflow: hidden;
+      margin: 8px 0 16px; padding: 28px 28px 24px;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 18px; box-shadow: var(--shadow);
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent-gradient); border-radius: 18px 18px 0 0;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto -40px -64px auto;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .kicker { color: var(--accent); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.74rem; }
+    h1, h2, h3 { margin: 0; line-height: 1.12; }
+    h1 { margin-top: 8px; font-size: clamp(1.7rem, 5.5vw, 3rem); letter-spacing: -0.04em; }
+    h2 { font-size: 1.18rem; margin-bottom: 10px; }
+    h3 { font-size: 0.96rem; margin-bottom: 6px; }
+    .subhead { color: var(--text-secondary); max-width: 680px; margin: 10px 0 0; font-size: 0.92rem; }
+    .tagline { color: var(--text-muted); font-style: italic; margin: 6px 0 0; font-size: 0.87rem; }
+    .pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px;
+      background: rgba(99,102,241,0.07); color: var(--text-secondary); font-size: 0.83rem; white-space: nowrap;
+    }
+    .grid { display: grid; gap: 12px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px; box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); border-color: var(--border-hover); }
+    .card.soft { background: var(--bg-secondary); }
+    .metric {
+      font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .muted { color: var(--text-muted); }
+    .small { font-size: 0.86rem; }
+    .section { margin-top: 16px; }
+    .section[hidden] { display: none; }
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; gap: 8px; overflow-x: auto;
+      padding: 8px 0; background: var(--bg-primary);
+    }
+    .tab {
+      border: 1px solid var(--border); background: var(--bg-card);
+      border-radius: 10px; padding: 9px 14px; cursor: pointer;
+      white-space: nowrap; color: var(--text-secondary); font-size: 0.88rem;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .tab:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .tab.active { background: var(--accent-gradient); border-color: transparent; color: #ffffff; font-weight: 700; }
+    .day-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    .timeline { display: grid; gap: 10px; }
+    .event {
+      display: grid; grid-template-columns: 82px 1fr auto;
+      gap: 12px; padding: 14px 16px;
+      border: 1px solid var(--border); border-radius: 14px;
+      background: var(--bg-card); box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .event:hover { border-color: var(--border-hover); }
+    .time { color: var(--accent); font-weight: 800; font-size: 0.88rem; padding-top: 3px; }
+    .tag {
+      display: inline-block; margin-top: 8px; padding: 3px 8px;
+      border-radius: 999px; background: rgba(99,102,241,0.12);
+      color: var(--accent); font-size: 0.74rem; font-weight: 700;
+    }
+    .edit-btn {
+      background: transparent; border: none; cursor: pointer;
+      color: var(--text-muted); font-size: 0.88rem; padding: 4px 6px;
+      border-radius: 6px; opacity: 0; transition: opacity 0.15s; align-self: flex-start; flex-shrink: 0;
+    }
+    .event:hover .edit-btn { opacity: 1; }
+    .edit-form { display: grid; gap: 8px; }
+    .edit-form input, .edit-form textarea {
+      width: 100%; padding: 8px 10px; border: 1px solid var(--border-hover);
+      border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);
+      font-size: 0.9rem; resize: vertical;
+    }
+    .edit-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 2px; }
+    .btn-save, .btn-cancel, .btn-reset { padding: 5px 14px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.82rem; font-weight: 600; }
+    .btn-save { background: var(--accent-gradient); color: #fff; }
+    .btn-cancel { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border); }
+    .btn-reset { background: transparent; color: var(--text-muted); font-size: 0.76rem; text-decoration: underline; padding: 5px 4px; }
+    .search {
+      width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+      border-radius: 10px; background: var(--bg-card); margin-bottom: 12px;
+      color: var(--text-primary); transition: border-color 0.15s;
+    }
+    .search:focus { outline: none; border-color: var(--border-hover); }
+    .choice {
+      display: grid; gap: 10px; padding: 18px;
+      border: 1px solid var(--border); border-radius: 14px;
+      background: var(--bg-card); box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .choice:hover { box-shadow: var(--shadow-hover); border-color: var(--border-hover); }
+    .choice .rank { color: var(--accent); font-weight: 800; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .vote-row { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
+    .vote-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--bg-secondary); color: var(--text-secondary);
+      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
+    }
+    .vote-btn:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .vote-btn.voted { background: var(--accent-gradient); border-color: transparent; color: #fff; }
+    .vote-count { font-size: 0.82rem; color: var(--text-muted); }
+    .notice {
+      border-left: 4px solid var(--warning); padding: 12px 14px;
+      background: rgba(245,158,11,0.08); border-radius: 0 10px 10px 0;
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .arrival-card {
+      border: 1px solid var(--border); border-top: 3px solid var(--accent);
+      padding: 20px 22px; background: var(--bg-card); border-radius: 14px;
+      margin-bottom: 16px; box-shadow: var(--shadow);
+    }
+    .arrival-card h2 { color: var(--text-primary); margin-bottom: 16px; }
+    .step-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .step-list li { display: flex; align-items: flex-start; gap: 13px; line-height: 1.55; }
+    .step-num {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--accent-gradient); color: #fff; font-size: 0.76rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px; box-shadow: 0 2px 8px rgba(99,102,241,0.35);
+    }
+    .travel-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 16px; }
+    .travel-table th { text-align: left; padding: 8px; border-bottom: 2px solid var(--border); font-size: 0.78rem; color: var(--text-muted); }
+    .travel-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .travel-table tr:last-child td { border-bottom: none; }
+    .transit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 0.92rem; }
+    .transit-list li { padding: 3px 0; }
+    .links-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .contacts-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 10px 0 14px; }
+    .contacts-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 0.76rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .contacts-table td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .contacts-table tr:last-child td { border-bottom: none; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .qlink {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 13px; border-radius: 999px; border: 1px solid var(--border);
+      background: rgba(99,102,241,0.07); color: var(--link);
+      font-size: 0.81rem; font-weight: 600; text-decoration: none; transition: all 0.15s; white-space: nowrap;
+    }
+    .qlink:hover { background: rgba(99,102,241,0.16); border-color: var(--border-hover); text-decoration: none; }
+    .agenda-note {
+      padding: 10px 14px; margin-bottom: 14px;
+      border: 1px solid var(--border); border-left: 4px solid var(--accent-2);
+      border-radius: 0 10px 10px 0; background: rgba(139,92,246,0.08);
+      color: var(--text-secondary); font-size: 0.88rem;
+    }
+    .bottom-nav {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+      display: grid;       grid-template-columns: repeat(6, 1fr);
+      gap: 4px; padding: 8px;
+      background: rgba(26,29,46,0.96);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+    html[data-theme="light"] .bottom-nav { background: rgba(240,244,255,0.96); }
+    .bottom-nav button {
+      border: 0; background: transparent; color: var(--text-muted);
+      border-radius: 10px; padding: 8px 4px; font-size: 0.72rem; cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+    }
+    .bottom-nav button.active { color: var(--accent); background: rgba(99,102,241,0.12); font-weight: 800; }
+    .mono { font-family: Consolas, "Courier New", Courier, monospace; font-size: 0.85rem; }
+    @media (max-width: 760px) {
+      .app { padding: 12px 12px 90px; }
+      .hero { padding: 18px 18px 20px; }
+      .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 68px 1fr auto; }
+      .nav { display: none; }
+      .travel-table { font-size: 0.8rem; }
+      .travel-table th, .travel-table td { padding: 6px 4px; }
+      .contacts-table { font-size: 0.79rem; }
+      .contacts-table th, .contacts-table td { padding: 7px 5px; }
+    }
+    .feedback-btn {
+      position: fixed; bottom: 90px; right: 24px; z-index: 25;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent-gradient); border: none; cursor: pointer;
+      font-size: 1.35rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.45);
+      transition: box-shadow 0.2s, transform 0.15s;
+      text-decoration: none; color: #fff;
+    }
+    .feedback-btn:hover { box-shadow: 0 8px 32px rgba(99,102,241,0.65); transform: translateY(-2px); text-decoration: none; }
+    .feedback-btn[title]:hover::after {
+      content: attr(title);
+      position: absolute; right: 60px; bottom: 4px;
+      background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 5px 10px; font-size: 0.8rem; white-space: nowrap;
+      box-shadow: var(--shadow); pointer-events: none;
+    }
+    .chicago-hero {
+      border: 1px solid var(--border); border-top: 3px solid var(--accent);
+      border-radius: 14px; padding: 20px 22px;
+      background: var(--bg-card); margin-bottom: 16px;
+      box-shadow: var(--shadow); font-size: 1rem;
+      color: var(--text-secondary); font-style: italic; line-height: 1.6;
+    }
+    .chicago-section-heading {
+      font-size: 1.05rem; font-weight: 800; margin: 20px 0 12px;
+      color: var(--text-primary); letter-spacing: -0.01em;
+    }
+    .event-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;
+    }
+    .event-card:hover { box-shadow: var(--shadow-hover); border-color: var(--border-hover); }
+    .dashboard-card {
+      display: flex; align-items: center; gap: 14px;
+      border: 1px solid var(--border); border-left: 4px solid var(--accent-2);
+      border-radius: 14px; padding: 14px 18px; background: rgba(139,92,246,0.07);
+      margin-bottom: 16px; box-shadow: var(--shadow);
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="kicker">RCG CAIP LT Offsite &bull; Chicago</div>
+      <h1>RCG CAIP LT Offsite &mdash; Chicago</h1>
+      <p class="tagline">Finally &mdash; faces, not just faces on screens. Two days of real talk, big ideas, and great Chicago food.</p>
+      <p class="subhead">Working session at the AON Center Microsoft Office Arrive by <strong>1:00 PM CT</strong> on Monday, Aug 17 &mdash; session kicks off at <strong>2:00 PM CT</strong>. Depart after 4:00 PM on Tuesday, Aug 18.</p>
+      <div class="pillrow">
+        <span class="pill">Aug 17&ndash;18</span>
+        <span class="pill">AON Center Microsoft Office</span>
+        <span class="pill">2nd Floor MTC Center</span>
+        <span class="pill">Logistics lead: Greg Widerski</span>
+      </div>
+    </header>
+
+    <nav class="nav" aria-label="Sections">
+      <button class="tab active" data-view="overview">Overview</button>
+      <button class="tab" data-view="agenda">Agenda</button>
+      <button class="tab" data-view="travel">Travel</button>
+      <button class="tab" data-view="logistics">Logistics</button>
+      <button class="tab" data-view="evening">Evening</button>
+      <button class="tab" data-view="chicago">&#x1F306; Chicago</button>
+    </nav>
+
+    <section id="overview" class="section">
+      <div class="arrival-card">
+        <h2>&#128205; Arriving at AON Center</h2>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <span>Enter <a href="https://www.google.com/maps/place/Aon+Center,+200+E+Randolph+St,+Chicago,+IL+60601" target="_blank" rel="noopener noreferrer"><strong>AON Center</strong> &#x2197;</a> &mdash; 200 E Randolph St, Chicago, IL 60601</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span>Head to <strong>AON Security on the 1st floor lobby</strong> &mdash; show your government-issued photo ID to receive your Microsoft building access badge</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span>After badging, proceed to the <strong>elevator bank</strong> &mdash; look for the <strong>&ldquo;Microsoft MTC 2nd Floor&rdquo; sign on the left (1st bank of elevators)</strong></span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span>Take the elevator to the <strong>2nd Floor MTC Center &mdash; EBC Conference Room</strong> <em>(pending confirmation)</em></span>
+          </li>
+          <li>
+            <span class="step-num">5</span>
+            <span>Grab a coffee and get settled &mdash; session kicks off at <strong>2:00 PM CT</strong> &middot; arrive by <strong>1:00 PM CT</strong></span>
+          </li>
+        </ul>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <div class="metric">1:00 PM</div>
+          <div class="muted">Arrival time, Aug 17</div>
+          <p class="small">Arrive at AON Center by 1:00 PM CT. Session kicks off at 2:00 PM CT.</p>
+        </article>
+        <article class="card">
+          <div class="metric">4:00 PM+</div>
+          <div class="muted">Day 2 office departure, Aug 18</div>
+          <p class="small">Book flights departing after 7:00 PM from ORD or after 6:30 PM from MDW where possible.</p>
+        </article>
+        <article class="card">
+          <div class="metric">2 days</div>
+          <div class="muted">Planning + operating rhythm</div>
+          <p class="small">Outputs: H1 execution scorecard, H2 bets, owner map, risks, and follow-up cadence.</p>
+        </article>
+      </div>
+      <div class="section grid two">
+        <article class="card soft">
+          <h2>Meeting goals</h2>
+          <p>Align CAIP LT on the operating plan, accelerate H1 execution, define H2 build priorities, and clarify business management mechanisms.</p>
+          <div class="pillrow">
+            <span class="pill">Execution</span>
+            <span class="pill">Business management</span>
+            <span class="pill">H2 planning</span>
+          </div>
+        </article>
+        <article class="card soft">
+          <h2>Core outputs</h2>
+          <p>Use the meeting to produce a one-page CAIP H2 narrative, scorecard commitments, risk/decision log, and stakeholder engagement plan.</p>
+          <div class="notice">Room, hotel, restaurant, and activity availability still require confirmation and contracting.</div>
+        </article>
+      </div>
+
+      <div class="section">
+        <div class="arrival-card">
+          <h2>&#x1F3E8; Stay at the <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago Millennium Park</a></h2>
+          <p style="margin:0 0 6px;"><strong>&#x1F3E8; Stay at the <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago Millennium Park</a></strong> &mdash; <em>conveniently connected to AON Center via an indoor corridor, so you never have to go outside.</em></p>
+          <p style="margin:0 0 18px;color:var(--text-muted);font-size:0.87rem;font-style:italic;">No need to battle Chicago August heat or rain &mdash; stay connected indoors the whole way.</p>
+          <h3 style="margin-bottom:14px;font-size:0.97rem;">&#x1F6B6; Indoor Walking Route: Fairmont &rarr; AON Center</h3>
+          <ul class="step-list">
+            <li>
+              <span class="step-num">1</span>
+              <span>Exit Fairmont lobby toward the <strong>lower level / lobby concourse</strong></span>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <span>Follow signs toward the <strong>AON Center building connector</strong></span>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <span>Walk through the <strong>indoor corridor</strong> connecting the buildings (~3&ndash;5 min walk, climate controlled)</span>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <span>Take the elevator to the <strong>2nd floor</strong> &rarr; look for the <strong>&ldquo;Microsoft MTC 2nd Floor&rdquo; sign on the left (1st bank of elevators)</strong></span>
+            </li>
+            <li>
+              <span class="step-num">5</span>
+              <span>Arrive at <strong>2nd Floor MTC Center &mdash; EBC Conference Room</strong> &#x2615;</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda" class="section" hidden>
+      <input id="agendaSearch" class="search" type="search" placeholder="Search agenda by topic, owner, H1, H2...">
+      <div class="day-toggle">
+        <button class="tab active" data-day="17">Day 1 &mdash; We&rsquo;re Here! &#127961;</button>
+        <button class="tab" data-day="18">Day 2 &mdash; Let&rsquo;s Build H2 &#128640;</button>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section id="travel" class="section" hidden>
+      <div class="card" style="margin-bottom:12px;">
+        <h2>&#9992; Flying In</h2>
+        <p class="muted small" style="margin:4px 0 14px;"><strong>Target arrival:</strong> Land by 11:00 AM on Aug 17 to arrive downtown by 1:00 PM CT</p>
+        <div style="overflow-x:auto;">
+          <table class="travel-table">
+            <thead><tr><th>Airport</th><th>Best flights</th><th>Transit to AON</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>O&rsquo;Hare (ORD)</strong></td>
+                <td>Morning nonstops recommended</td>
+                <td>Blue Line &rarr; Washington, or Rideshare</td>
+                <td>~45&ndash;60 min</td>
+              </tr>
+              <tr>
+                <td><strong>Midway (MDW)</strong></td>
+                <td>Southwest hub, good connections</td>
+                <td>Orange Line &rarr; Adams/Wabash, or Rideshare</td>
+                <td>~35&ndash;45 min</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:0 0 8px;font-weight:700;">Best transit options:</p>
+        <ul class="transit-list">
+          <li>&#x1F687; <strong>CTA Blue Line (ORD)</strong> &rarr; Washington/Dearborn &mdash; walk 5 min to AON <span class="tag">$5</span></li>
+          <li>&#x1F687; <strong>CTA Orange Line (MDW)</strong> &rarr; Adams/Wabash &mdash; walk 8 min to AON <span class="tag">$5</span></li>
+          <li>&#x1F697; <strong>Rideshare (Uber/Lyft)</strong> &mdash; drop-off at 200 E Randolph <span class="tag">$35&ndash;55 from ORD</span> <span class="tag">$25&ndash;40 from MDW</span></li>
+          <li>&#x1F68C; <strong>Airport Express Bus</strong> &mdash; available from both airports</li>
+        </ul>
+        <div class="notice" style="margin-top:14px;">
+          <strong>Departing Aug 18:</strong> Plan for flights after 6:00 PM (session ends 4:00 PM + transit time)
+        </div>
+      </div>
+      <div class="card">
+        <h2>&#128279; Links</h2>
+        <ul class="links-list">
+          <li><a href="https://www.google.com/maps/dir/O%27Hare+International+Airport/Aon+Center,+200+E+Randolph+St,+Chicago,+IL+60601" target="_blank" rel="noopener noreferrer">Google Maps: ORD &rarr; AON Center &#x2197;</a></li>
+          <li><a href="https://www.google.com/maps/dir/Midway+International+Airport/Aon+Center,+200+E+Randolph+St,+Chicago,+IL+60601" target="_blank" rel="noopener noreferrer">Google Maps: MDW &rarr; AON Center &#x2197;</a></li>
+          <li><a href="https://www.transitchicago.com/" target="_blank" rel="noopener noreferrer">CTA Trip Planner &#x2197;</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="logistics" class="section" hidden>
+      <div class="dashboard-card">
+        <span style="font-size:1.8rem;">&#x1F916;</span>
+        <div>
+          <strong style="font-size:0.97rem;">Planning Dashboard</strong>
+          <p class="muted small" style="margin:3px 0 0;"><a href="./agent-dashboard.html">View Agent Status &rarr;</a></p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:14px;">
+        <h2>&#128203; Building Info &amp; Contacts</h2>
+        <p class="muted small" style="margin:2px 0 10px;"><strong>AON Center &mdash; Chicago 200RAND</strong></p>
+        <div style="overflow-x:auto;">
+          <table class="contacts-table">
+            <thead><tr><th>Role</th><th>Contact</th><th>Phone</th><th>Email</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Workplace Experience Coordinator</td>
+                <td><strong>Ester DeKeLaita</strong></td>
+                <td><a href="tel:3129205600">312-920-5600</a></td>
+                <td><a href="mailto:lbychi09@microsoft.com">lbychi09@microsoft.com</a></td>
+              </tr>
+              <tr>
+                <td>Workplace Receptionist</td>
+                <td><strong>Sara Snyder</strong></td>
+                <td><a href="tel:3129205600">312-920-5600</a></td>
+                <td><a href="mailto:lbychi09@microsoft.com">lbychi09@microsoft.com</a></td>
+              </tr>
+              <tr>
+                <td>Workplace Experience Manager</td>
+                <td><strong>Mark Gross</strong></td>
+                <td><a href="tel:3129205813">312-920-5813</a></td>
+                <td><a href="mailto:v-magros@microsoft.com">v-magros@microsoft.com</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:10px 0 8px;font-weight:700;font-size:0.9rem;">Quick Links</p>
+        <div class="quick-links">
+          <a class="qlink" href="https://www.msfacilities.com/" target="_blank" rel="noopener noreferrer">&#128295; Facilities Request</a>
+          <a class="qlink" href="https://aka.ms/bookaroom" target="_blank" rel="noopener noreferrer">&#128197; Book A Room</a>
+          <a class="qlink" href="https://aka.ms/techweb" target="_blank" rel="noopener noreferrer">&#128187; IT Helpdesk</a>
+          <a class="qlink" href="mailto:AVLINK@microsoft.com">&#127909; AV Support</a>
+          <a class="qlink" href="https://microsoft.sharepoint.com/sites/globalsecurity/SitePages/Services-GSAM-GSAMSelfServicePortal.aspx" target="_blank" rel="noopener noreferrer">&#129394; Badge / Access Request</a>
+          <a class="qlink" href="https://microsoft.sharepoint.com/sites/globalsecurity" target="_blank" rel="noopener noreferrer">&#128274; Security Website</a>
+        </div>
+        <p class="muted small" style="margin:10px 0 0;">IT Helpdesk: <strong>(866) 539-4191</strong> &middot; AV: <a href="mailto:AVLINK@microsoft.com">AVLINK@microsoft.com</a> or Global Helpdesk option 6 &rarr; 1 &middot; Badge/Access portal requires VPN</p>
+      </div>
+      <div class="grid two">
+        <article class="card">
+          <h2>Primary meeting space</h2>
+          <p><strong>Reserve:</strong> Full-day conference room &mdash; <strong>2nd Floor MTC Center</strong>, <strong>EBC Conference Room</strong> <em>(pending confirmation)</em> at <a href="https://www.google.com/maps/place/Aon+Center,+200+E+Randolph+St,+Chicago,+IL+60601" target="_blank" rel="noopener noreferrer">AON Center &#x2197;</a> for Aug 17 afternoon and Aug 18 full working day.</p>
+          <p><strong>Setup:</strong> Boardroom or classroom hybrid, Teams-enabled AV, whiteboards, breakfast/lunch staging nearby.</p>
+        </article>
+        <article class="card">
+          <h2>Breakout rooms</h2>
+          <p><strong>Reserve:</strong> 3&ndash;4 additional rooms for confidential calls, customer escalations, and breakout workstreams.</p>
+          <p><strong>Pattern:</strong> 1 exec call room, 2 working-team rooms.</p>
+        </article>
+        <article class="card" style="grid-column: 1 / -1;">
+          <h2>Hotel block</h2>
+          <p style="margin:0 0 8px;">&#x1F3E8; <strong>Stay at the <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago Millennium Park &#x2197;</a></strong> &mdash; <em>conveniently connected to AON Center via an indoor corridor, so you never have to go outside.</em></p>
+          <p><strong>Target:</strong> <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago &#x2197;</a> Millennium Park if an in-policy group block is available. Self-book via <a href="https://aka.ms/bookaroom" target="_blank" rel="noopener noreferrer">aka.ms/bookaroom &#x2197;</a>.</p>
+          <p><strong>Ask:</strong> Aug 16 optional early arrival, Aug 17 primary overnight, Aug 18 late checkout options, flexible attrition, direct billing if available.</p>
+          <p style="margin:10px 0 14px;color:var(--text-muted);font-size:0.87rem;font-style:italic;">No need to battle Chicago August heat or rain &mdash; stay connected indoors the whole way.</p>
+          <h3 style="margin-bottom:12px;font-size:0.94rem;">&#x1F6B6; Indoor Walking Route: Fairmont &rarr; AON Center</h3>
+          <ul class="step-list">
+            <li>
+              <span class="step-num">1</span>
+              <span>Exit Fairmont lobby toward the <strong>lower level / lobby concourse</strong></span>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <span>Follow signs toward the <strong>AON Center building connector</strong></span>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <span>Walk through the <strong>indoor corridor</strong> connecting the buildings (~3&ndash;5 min walk, climate controlled)</span>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <span>Take the elevator to the <strong>2nd floor</strong> &rarr; look for the <strong>&ldquo;Microsoft MTC 2nd Floor&rdquo; sign on the left (1st bank of elevators)</strong></span>
+            </li>
+            <li>
+              <span class="step-num">5</span>
+              <span>Arrive at <strong>2nd Floor MTC Center &mdash; EBC Conference Room</strong> &#x2615;</span>
+            </li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Food and day-of support</h2>
+          <p>Plan light lunch on arrival, afternoon snacks, breakfast on Aug 18, and working lunch on Aug 18. Confirm visitor badges, Wi-Fi, AV support, and room access windows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="evening" class="section" hidden>
+      <div class="grid">
+        <article class="choice">
+          <div class="rank">&#x1F31F; Top Pick</div>
+          <h2><a href="https://www.cabrachicago.com/" target="_blank" rel="noopener noreferrer">Cabra &#x2197;</a></h2>
+          <p>Rooftop Latin restaurant at the Hoxton Hotel, West Loop. Stunning views, shared plates, cocktails &mdash; perfect for groups. &#x1F966; Vegetarian options</p>
+          <div class="pillrow"><span class="pill">Rooftop</span><span class="pill">West Loop</span><span class="pill">Latin</span><span class="pill">Group-friendly</span></div>
+          <div class="vote-row">
+            <button class="vote-btn" data-restaurant="cabra">&#x1F44D; Vote</button>
+            <span class="vote-count" id="count-cabra">0 votes</span>
+          </div>
+        </article>
+        <article class="choice">
+          <div class="rank">Modern Chinese &mdash; West Loop</div>
+          <h2><a href="https://www.duckduckgoatchicago.com/" target="_blank" rel="noopener noreferrer">Duck Duck Goat &#x2197;</a></h2>
+          <p>Stephanie Izard&rsquo;s modern Chinese, West Loop. Bold flavors, great for groups. &#x1F966; Vegetarian options</p>
+          <div class="pillrow"><span class="pill">West Loop</span><span class="pill">Group dinner</span><span class="pill">Bold flavors</span></div>
+          <div class="vote-row">
+            <button class="vote-btn" data-restaurant="ddg">&#x1F44D; Vote</button>
+            <span class="vote-count" id="count-ddg">0 votes</span>
+          </div>
+        </article>
+        <article class="choice">
+          <div class="rank">Japanese Street Food &mdash; West Loop</div>
+          <h2><a href="https://gaijinchicago.com/" target="_blank" rel="noopener noreferrer">Gaijin &#x2197;</a></h2>
+          <p>Japanese Okonomiyaki &amp; street food, West Loop. Unique, fun, shareable. &#x1F966; Vegetarian options</p>
+          <div class="pillrow"><span class="pill">Okonomiyaki</span><span class="pill">West Loop</span><span class="pill">Interactive</span></div>
+          <div class="vote-row">
+            <button class="vote-btn" data-restaurant="gaijin">&#x1F44D; Vote</button>
+            <span class="vote-count" id="count-gaijin">0 votes</span>
+          </div>
+        </article>
+        <article class="choice">
+          <div class="rank">Upscale Japanese &mdash; Fulton Market</div>
+          <h2><a href="https://www.momotarochicago.com/" target="_blank" rel="noopener noreferrer">Momotaro &#x2197;</a></h2>
+          <p>Upscale Japanese, Fulton Market. Beautiful space, excellent for team dinners. &#x1F966; Vegetarian options</p>
+          <div class="pillrow"><span class="pill">Fulton Market</span><span class="pill">Upscale</span><span class="pill">Team dinner</span></div>
+          <div class="vote-row">
+            <button class="vote-btn" data-restaurant="momotaro">&#x1F44D; Vote</button>
+            <span class="vote-count" id="count-momotaro">0 votes</span>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Pickleball logistics</h2>
+          <p>Best target is a West Loop/Fulton Market court option that can pair with dinner. Hold a 60&ndash;90 minute window before dinner, roughly 5:30&ndash;7:00 PM, with dinner at 7:30 PM.</p>
+          <p><strong>Plan A:</strong> Reserve nearby courts &mdash; consider <a href="https://www.chicagopickleballclub.com/" target="_blank" rel="noopener noreferrer">Chicago Pickleball Club &#x2197;</a> or <a href="https://www.bigcitypickle.com/" target="_blank" rel="noopener noreferrer">Big City Pickle &#x2197;</a>. <strong>Plan B:</strong> Indoor courts + rideshare from AON Center. <strong>Plan C:</strong> Skip activity and extend dinner reception if weather or availability is poor.</p>
+        </article>
+      </div>
+    </section>
+    <section id="chicago" class="section" hidden>
+      <div class="chicago-hero">
+        &ldquo;Chicago in August is electric. World-class food, music on every corner, lakefront beaches, rooftop bars, and one of the most beautiful skylines on the planet. Whether you&rsquo;re arriving early, staying late, or sneaking out between sessions &mdash; here&rsquo;s your insider guide.&rdquo;
+      </div>
+
+      <p class="chicago-section-heading">&#x1F389; What&rsquo;s Happening Aug 15&ndash;20</p>
+      <div class="grid" style="gap:10px;margin-bottom:20px;">
+        <div class="event-card">
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin-bottom:4px;"><a href="https://www.chicagoairandwatershow.us/" target="_blank" rel="noopener noreferrer">Chicago Air &amp; Water Show &#x2197;</a></h3>
+            <p class="small muted" style="margin:0 0 6px;">Aug 15&ndash;16, 2026 &middot; North Avenue Beach &middot; Free</p>
+            <p style="margin:0;font-size:0.91rem;">One of the largest free air shows in the US. Jets, aerobatics, Navy Blue Angels. If you&rsquo;re arriving early, don&rsquo;t miss it.</p>
+          </div>
+          <span class="tag">Free &middot; Beach</span>
+        </div>
+        <div class="event-card">
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin-bottom:4px;"><a href="https://www.lollapalooza.com/" target="_blank" rel="noopener noreferrer">Lollapalooza &#x2197;</a></h3>
+            <p class="small muted" style="margin:0 0 6px;">Grant Park &middot; First weekend of August</p>
+            <p style="margin:0;font-size:0.91rem;">May just be wrapping up or freshly passed. Check the lineup &mdash; might be worth extending your trip.</p>
+          </div>
+          <span class="tag">Music</span>
+        </div>
+        <div class="event-card">
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin-bottom:4px;"><a href="https://www.choosechicago.com/restaurant-week/" target="_blank" rel="noopener noreferrer">Chicago Restaurant Week &#x2197;</a></h3>
+            <p class="small muted" style="margin:0 0 6px;">August &middot; Citywide</p>
+            <p style="margin:0;font-size:0.91rem;">August is prime dining season. Many top restaurants offer prix-fixe menus &mdash; great excuse to try somewhere special.</p>
+          </div>
+          <span class="tag">Dining</span>
+        </div>
+        <div class="event-card">
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin-bottom:4px;"><a href="https://www.architecture.org/tours/detail/architecture-river-cruise/" target="_blank" rel="noopener noreferrer">Chicago Architecture River Cruise &#x2197;</a></h3>
+            <p class="small muted" style="margin:0 0 6px;">Running daily &middot; 75-min cruise down the Chicago River</p>
+            <p style="margin:0;font-size:0.91rem;">One of the best ways to see the city. Highly recommended for first-timers and veterans alike.</p>
+          </div>
+          <span class="tag">Must-Do</span>
+        </div>
+        <div class="event-card">
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin-bottom:4px;"><a href="https://www.millenniumpark.org/" target="_blank" rel="noopener noreferrer">Millennium Park &#x2197;</a></h3>
+            <p class="small muted" style="margin:0 0 6px;">Right next to AON &middot; Free</p>
+            <p style="margin:0;font-size:0.91rem;">Cloud Gate (The Bean), Crown Fountain, summer concerts. You&rsquo;re literally steps away &mdash; no reason not to stop by.</p>
+          </div>
+          <span class="tag">Free &middot; 2 min walk</span>
+        </div>
+      </div>
+
+      <p class="chicago-section-heading">&#x1F37D;&#xFE0F; Chicago Classics (Beyond Our Team Dinner)</p>
+      <div class="grid two" style="margin-bottom:20px;">
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.loumalnatis.com/" target="_blank" rel="noopener noreferrer">Lou Malnati&rsquo;s &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Deep dish. Non-negotiable.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.alsbeef.com/" target="_blank" rel="noopener noreferrer">Al&rsquo;s Beef &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Italian beef sandwich. A Chicago religion.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.thepublicanrestaurant.com/" target="_blank" rel="noopener noreferrer">Publican &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Brunch/lunch near West Loop. Pork-forward, excellent beer list.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.girlandthegoat.com/" target="_blank" rel="noopener noreferrer">Girl &amp; the Goat &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Stephanie Izard again (yes, also the Duck Duck Goat chef). Consistently incredible.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.rpmrestaurants.com/rpm-steak" target="_blank" rel="noopener noreferrer">RPM Steak &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">If you want a classic steakhouse night.</p>
+        </article>
+      </div>
+
+      <p class="chicago-section-heading">&#x1F378; Rooftop Bars &amp; Drinks</p>
+      <div class="grid three" style="margin-bottom:20px;">
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.chicagoathletichotel.com/cindy-s" target="_blank" rel="noopener noreferrer">Cindy&rsquo;s &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Chicago Athletic Association Hotel. Stunning Millennium Park views.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.offshorechi.com/" target="_blank" rel="noopener noreferrer">Offshore &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Navy Pier rooftop bar with lake views.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.thewithotel.com/" target="_blank" rel="noopener noreferrer">The Rooftop at the Wit &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">State St, great Loop views.</p>
+        </article>
+      </div>
+
+      <p class="chicago-section-heading">&#x1F3C3; Things To Do</p>
+      <div class="grid two" style="margin-bottom:20px;">
+        <article class="card">
+          <h3 style="margin-bottom:4px;">Riverwalk</h3>
+          <p class="small muted" style="margin:0;">Walk or bike the Chicago Riverwalk. Bars, kayak rentals, great views. Free.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.navypier.com/" target="_blank" rel="noopener noreferrer">Navy Pier &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Right on the lake. Ferris wheel, restaurants, sunset views.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.artic.edu/" target="_blank" rel="noopener noreferrer">Art Institute of Chicago &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">World-class. Sunday Seurat, Nighthawks. 5 min from AON.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;">Lake Michigan Beach</h3>
+          <p class="small muted" style="margin:0;">Oak Street Beach or North Avenue Beach. A 10-min rideshare.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:4px;"><a href="https://www.chicagoriverwalk.us/" target="_blank" rel="noopener noreferrer">Chicago Riverwalk Kayak &#x2197;</a></h3>
+          <p class="small muted" style="margin:0;">Rent kayaks right on the river.</p>
+        </article>
+      </div>
+
+      <p class="chicago-section-heading">&#x2600;&#xFE0F; Weather Forecast</p>
+      <div class="card" style="border-top:3px solid var(--warning);margin-bottom:8px;">
+        <h3 style="margin-bottom:8px;">Chicago Weather &middot; Aug 17&ndash;18, 2026</h3>
+        <p style="margin:0 0 12px;font-style:italic;color:var(--text-secondary);">August in Chicago: expect highs of 78&ndash;86&deg;F, partly cloudy, lake breeze. Perfect rooftop weather.</p>
+        <div class="quick-links">
+          <a class="qlink" href="https://forecast.weather.gov/MapClick.php?CityName=Chicago&state=IL&site=LOT&textField1=41.8819&textField2=-87.6278" target="_blank" rel="noopener noreferrer">&#x1F324;&#xFE0F; 10-Day Forecast &rarr;</a>
+          <a class="qlink" href="https://weather.com/weather/tenday/l/Chicago+IL+USIL0225:1:US" target="_blank" rel="noopener noreferrer">&#x26C5; Weather.com Chicago</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="feedback-btn" href="mailto:gwiderski@microsoft.com?subject=CAIP%20Offsite%20App%20Feedback&body=Hi%20Greg%2C%0A%0A" title="Send feedback to Greg" aria-label="Send feedback to Greg">&#x1F4AC;</a>
+
+  <nav class="bottom-nav" aria-label="Mobile sections">
+    <button class="active" data-view="overview">Overview</button>
+    <button data-view="agenda">Agenda</button>
+    <button data-view="travel">Travel</button>
+    <button data-view="logistics">Rooms</button>
+    <button data-view="evening">Evening</button>
+    <button data-view="chicago">&#x1F306; Chi</button>
+  </nav>
+  <script>
+    const agendaDefaults = {
+      "17": [
+        { id:"d1-0",  time:"12:00", title:"Arrival, badges, lunch pickup",            tag:"Logistics",           body:"Attendees arrive at AON Center, collect badges, grab a working lunch, and settle in. Arrive by 1:00 PM CT." },
+        { id:"d1-1",  time:"1:00",  title:"Welcome and settle in",                    tag:"Greg / CAIP LT",      body:"Settle in, grab coffee, reconnect as a team. Confirm outcomes, working norms, and expected deliverables for the two-day session." },
+        { id:"d1-2",  time:"2:00",  title:"CAIP state of the business",               tag:"Business management",  body:"Review current scorecard, H1 commitments, pipeline, blockers, field signals, and customer impact. Official session start." },
+        { id:"d1-3",  time:"2:50",  title:"H1 execution deep dive",                   tag:"Execution",           body:"Identify what is on track, what needs intervention, and where LT decisions are required." },
+        { id:"d1-4",  time:"3:40",  title:"Break",                                    tag:"Logistics",           body:"Refresh, calls, and room reset." },
+        { id:"d1-5",  time:"3:55",  title:"CAIP initiatives: workstream reviews",     tag:"Initiatives",         body:"Each initiative owner covers goal, H1 progress, H2 ask, dependencies, and next decision." },
+        { id:"d1-7",  time:"5:55",  title:"Day 1 synthesis",                          tag:"Decisions",           body:"Capture decisions, unresolved issues, and prep needed for Day 2." },
+        { id:"d1-8",  time:"6:15",  title:"Transition to evening",                    tag:"Social",              body:"Rideshare or walk to West Loop/Fulton Market for pickleball or reception." },
+        { id:"d1-9",  time:"6:30",  title:"Optional pickleball / social activity",    tag:"Team engagement",     body:"60-90 minute light activity near dinner location. Optional for travel fatigue and calls." },
+        { id:"d1-10", time:"7:30",  title:"Team dinner",                              tag:"Engagement",          body:"Top pick: Cabra (rooftop, West Loop). Alternatives: Duck Duck Goat, Gaijin, Momotaro." }
+      ],
+      "18": [
+        { id:"d2-0",  time:"8:00",  title:"Breakfast and overnight synthesis",        tag:"Logistics",           body:"Review Day 1 outputs, close open prep items, and align on Day 2 decisions." },
+        { id:"d2-1",  time:"8:30",  title:"H2 strategic bets",                        tag:"Planning",            body:"Define the few H2 bets that matter most and the investment tradeoffs needed to execute." },
+        { id:"d2-2",  time:"9:30",  title:"Operating model and governance",           tag:"Business management",  body:"Confirm metrics, meeting cadence, decision rights, escalation paths, and monthly business review format." },
+        { id:"d2-3",  time:"10:30", title:"Break / calls",                            tag:"Logistics",           body:"Use breakout rooms for customer or internal calls." },
+        { id:"d2-5",  time:"11:30", title:"Customer and partner motion",              tag:"Field strategy",      body:"Clarify top customer moments and partner leverage." },
+        { id:"d2-6",  time:"12:15", title:"Working lunch: risk and dependency map",   tag:"Execution",           body:"Build top risks, dependency owners, and mitigation plan." },
+        { id:"d2-7",  time:"1:00",  title:"Initiative owner commitments",             tag:"Accountability",      body:"Each owner locks H2 outcomes, milestones, measures, and asks." },
+        { id:"d2-8",  time:"2:15",  title:"Communications and stakeholder plan",      tag:"Change management",   body:"Draft the message to the broader team: priorities, why now, how success will be measured." },
+        { id:"d2-9",  time:"3:00",  title:"Final decision log and next 30 days",      tag:"Decisions",           body:"Review decisions, action owners, due dates, and operating cadence." },
+        { id:"d2-10", time:"3:45",  title:"Closeout",                                 tag:"Greg / CAIP LT",      body:"Confirm outputs, travel timing, and follow-up artifact owners." },
+        { id:"d2-11", time:"4:00",  title:"Depart office",                            tag:"Travel",              body:"Attendees depart AON Center for ORD, MDW, hotel, or local commitments." }
+      ]
+    };
+
+    let currentDay = "17";
+    const restaurants = ["cabra","ddg","gaijin","momotaro"];
+
+    function getAgendaItem(id) {
+      try { const s = localStorage.getItem("caip_agenda_" + id); return s ? JSON.parse(s) : null; } catch(e) { return null; }
+    }
+    function saveAgendaItem(id, title, body) {
+      localStorage.setItem("caip_agenda_" + id, JSON.stringify({ title, body }));
+    }
+    function resetAgendaItem(id) { localStorage.removeItem("caip_agenda_" + id); }
+
+    function getVotes(k) { return parseInt(localStorage.getItem("caip_vote_count_" + k) || "0", 10); }
+    function hasVoted(k) { return localStorage.getItem("caip_vote_user_" + k) === "1"; }
+    function toggleVote(k) {
+      if (hasVoted(k)) {
+        localStorage.removeItem("caip_vote_user_" + k);
+        localStorage.setItem("caip_vote_count_" + k, Math.max(0, getVotes(k) - 1));
+      } else {
+        localStorage.setItem("caip_vote_user_" + k, "1");
+        localStorage.setItem("caip_vote_count_" + k, getVotes(k) + 1);
+      }
+    }
+    function updateVoteUI() {
+      restaurants.forEach(k => {
+        const btn = document.querySelector(`.vote-btn[data-restaurant="${k}"]`);
+        const cnt = document.getElementById("count-" + k);
+        if (!btn || !cnt) return;
+        const voted = hasVoted(k);
+        btn.textContent = voted ? "\u2713 Voted" : "\uD83D\uDC4D Vote";
+        btn.classList.toggle("voted", voted);
+        const n = getVotes(k);
+        cnt.textContent = n === 1 ? "1 vote" : n + " votes";
+      });
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    function renderAgenda() {
+      const query = document.getElementById("agendaSearch").value.trim().toLowerCase();
+      const items = agendaDefaults[currentDay];
+      const filtered = items.filter(item => {
+        if (!query) return true;
+        const sv = getAgendaItem(item.id);
+        return ((sv ? sv.title : item.title) + " " + (sv ? sv.body : item.body) + " " + item.tag).toLowerCase().includes(query);
+      });
+      document.getElementById("timeline").innerHTML = filtered.map(item => {
+        const sv = getAgendaItem(item.id);
+        const t = sv ? sv.title : item.title;
+        const b = sv ? sv.body  : item.body;
+        return `<article class="event" id="event-${item.id}">
+          <div class="time">${esc(item.time)}</div>
+          <div class="event-content">
+            <h3>${esc(t)}</h3>
+            <p class="muted small">${esc(b)}</p>
+            <span class="tag">${esc(item.tag)}</span>
+          </div>
+          <button class="edit-btn" data-edit="${item.id}" title="Edit">\u270F\uFE0F</button>
+        </article>`;
+      }).join("");
+    }
+
+    function openEditForm(id) {
+      const el = document.getElementById("event-" + id);
+      if (!el) return;
+      const def = agendaDefaults[currentDay].find(i => i.id === id);
+      if (!def) return;
+      const sv = getAgendaItem(id);
+      const t = sv ? sv.title : def.title;
+      const b = sv ? sv.body  : def.body;
+      el.querySelector(".event-content").innerHTML =
+        `<div class="edit-form">
+          <input class="edit-title" value="${esc(t)}" placeholder="Session title">
+          <textarea class="edit-body" rows="3" placeholder="Description">${esc(b)}</textarea>
+          <div class="edit-actions">
+            <button class="btn-save" data-save="${id}">\u2705 Save</button>
+            <button class="btn-cancel" data-cancel="${id}">\u274C Cancel</button>
+            <button class="btn-reset" data-reset="${id}">Reset to default</button>
+          </div>
+        </div><span class="tag">${esc(def.tag)}</span>`;
+      const eb = el.querySelector(".edit-btn");
+      if (eb) eb.style.display = "none";
+    }
+
+    function closeEditForm(id, save) {
+      const el = document.getElementById("event-" + id);
+      if (save && el) {
+        const nt = el.querySelector(".edit-title").value.trim();
+        const nb = el.querySelector(".edit-body").value.trim();
+        if (nt) saveAgendaItem(id, nt, nb);
+      }
+      renderAgenda();
+    }
+
+    function setView(view) {
+      document.querySelectorAll(".section").forEach(s => s.hidden = s.id !== view);
+      document.querySelectorAll("[data-view]").forEach(b => b.classList.toggle("active", b.dataset.view === view));
+      if (view === "agenda")  renderAgenda();
+      if (view === "evening") updateVoteUI();
+    }
+
+    document.addEventListener("click", e => {
+      const vb = e.target.closest("[data-view]");      if (vb) { setView(vb.dataset.view); return; }
+      const db = e.target.closest("[data-day]");       if (db) { currentDay = db.dataset.day; document.querySelectorAll("[data-day]").forEach(b => b.classList.toggle("active", b.dataset.day === currentDay)); renderAgenda(); return; }
+      const eb = e.target.closest("[data-edit]");      if (eb) { openEditForm(eb.dataset.edit); return; }
+      const sb = e.target.closest("[data-save]");      if (sb) { closeEditForm(sb.dataset.save, true); return; }
+      const cb = e.target.closest("[data-cancel]");    if (cb) { closeEditForm(cb.dataset.cancel, false); return; }
+      const rb = e.target.closest("[data-reset]");     if (rb) { resetAgendaItem(rb.dataset.reset); renderAgenda(); return; }
+      const vo = e.target.closest("[data-restaurant]");if (vo) { toggleVote(vo.dataset.restaurant); updateVoteUI(); return; }
+    });
+
+    document.addEventListener("input", e => { if (e.target.id === "agendaSearch") renderAgenda(); });
+
+    renderAgenda();
+    updateVoteUI();
+  </script>
+</body>
+</html>
