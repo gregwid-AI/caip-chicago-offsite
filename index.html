@@ -297,6 +297,158 @@
       border-radius: 14px; padding: 14px 18px; background: rgba(139,92,246,0.07);
       margin-bottom: 16px; box-shadow: var(--shadow);
     }
+
+    /* ── AI ASSISTANT ───────────────────────────────────── */
+    .ai-fab {
+      position: fixed; bottom: 152px; right: 24px; z-index: 25;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+      border: none; cursor: pointer;
+      font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(14,165,233,0.5);
+      transition: box-shadow 0.2s, transform 0.15s; color: #fff;
+    }
+    .ai-fab:hover { box-shadow: 0 8px 32px rgba(14,165,233,0.7); transform: translateY(-2px); }
+    .ai-fab .ai-badge {
+      position: absolute; top: -3px; right: -3px;
+      background: #10b981; color: #fff; font-size: 0.5rem; font-weight: 900;
+      padding: 2px 4px; border-radius: 999px; line-height: 1.2; letter-spacing: 0.03em;
+    }
+
+    .ai-panel {
+      position: fixed; bottom: 80px; right: 16px; z-index: 30;
+      width: 370px; max-width: calc(100vw - 24px);
+      max-height: min(600px, calc(100vh - 110px));
+      background: var(--bg-card);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(14,165,233,0.15);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .ai-panel[hidden] { display: none; }
+
+    .ai-header {
+      padding: 14px 16px 12px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(99,102,241,0.12));
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 11px; flex-shrink: 0;
+    }
+    .ai-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(14,165,233,0.4);
+    }
+    .ai-header-text { flex: 1; }
+    .ai-header-title { font-weight: 700; font-size: 0.92rem; color: var(--text-primary); }
+    .ai-header-sub { font-size: 0.71rem; color: var(--text-muted); margin-top: 1px; }
+    .ai-header-actions { display: flex; align-items: center; gap: 6px; }
+    .ai-copilot-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 9px; border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff; font-size: 0.72rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.15s; white-space: nowrap;
+    }
+    .ai-copilot-link:hover { opacity: 0.88; text-decoration: none; }
+    .ai-close-btn {
+      background: transparent; border: none; cursor: pointer;
+      color: var(--text-muted); font-size: 1.1rem; padding: 4px; border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .ai-close-btn:hover { background: var(--bg-secondary); }
+
+    .ai-messages {
+      flex: 1; overflow-y: auto; padding: 14px 13px 6px;
+      display: flex; flex-direction: column; gap: 10px;
+      scroll-behavior: smooth;
+    }
+    .ai-messages::-webkit-scrollbar { width: 4px; }
+    .ai-messages::-webkit-scrollbar-track { background: transparent; }
+    .ai-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .ai-msg { display: flex; gap: 8px; align-items: flex-end; max-width: 92%; }
+    .ai-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .ai-msg.bot  { align-self: flex-start; }
+    .ai-msg-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; flex-shrink: 0;
+    }
+    .ai-bubble {
+      padding: 8px 13px; border-radius: 14px;
+      font-size: 0.85rem; line-height: 1.55; word-break: break-word;
+    }
+    .ai-msg.user .ai-bubble {
+      background: var(--accent-gradient); color: #fff;
+      border-radius: 14px 14px 4px 14px;
+    }
+    .ai-msg.bot .ai-bubble {
+      background: var(--bg-secondary); color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 14px 14px 14px 4px;
+    }
+    .ai-bubble a { color: #60a5fa; }
+    .ai-bubble strong { color: inherit; }
+
+    .ai-typing-row { align-self: flex-start; display: flex; gap: 8px; align-items: flex-end; }
+    .ai-typing-bubble {
+      padding: 10px 14px;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 14px 14px 14px 4px;
+      display: flex; gap: 4px; align-items: center;
+    }
+    .ai-typing-bubble span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); opacity: 0.6;
+      animation: aiDot 1.2s ease-in-out infinite;
+    }
+    .ai-typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+    .ai-typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes aiDot { 0%,80%,100%{transform:translateY(0);opacity:0.5} 40%{transform:translateY(-5px);opacity:1} }
+
+    .ai-chips {
+      padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 5px;
+      border-top: 1px solid var(--border); background: var(--bg-secondary); flex-shrink: 0;
+    }
+    .ai-chip {
+      padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--bg-card); color: var(--text-secondary);
+      font-size: 0.75rem; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .ai-chip:hover { border-color: #0ea5e9; color: #0ea5e9; background: rgba(14,165,233,0.07); }
+
+    .ai-input-row {
+      padding: 10px 12px; border-top: 1px solid var(--border);
+      display: flex; gap: 8px; align-items: flex-end;
+      background: var(--bg-card); flex-shrink: 0;
+    }
+    .ai-input {
+      flex: 1; padding: 8px 12px; border: 1px solid var(--border);
+      border-radius: 10px; background: var(--bg-secondary);
+      color: var(--text-primary); font-size: 0.86rem; resize: none;
+      max-height: 88px; overflow-y: auto; line-height: 1.4;
+      transition: border-color 0.15s;
+    }
+    .ai-input:focus { outline: none; border-color: #0ea5e9; }
+    .ai-send {
+      width: 36px; height: 36px; border-radius: 10px; border: none;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff; cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: opacity 0.15s, transform 0.15s;
+    }
+    .ai-send:hover { transform: scale(1.05); }
+    .ai-send:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+    .ai-escalate {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      margin-top: 6px; padding: 8px 12px;
+      border: 1px solid rgba(14,165,233,0.25); border-radius: 10px;
+      background: rgba(14,165,233,0.06); font-size: 0.79rem; color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -893,5 +1045,404 @@
     renderAgenda();
     updateVoteUI();
   </script>
+  <!-- ── AI ASSISTANT WIDGET ──────────────────────────── -->
+  <button class="ai-fab" id="aiFab" aria-label="Ask the Offsite AI Assistant">
+    🤖<span class="ai-badge">AI</span>
+  </button>
+
+  <div class="ai-panel" id="aiPanel" hidden aria-label="Offsite AI Assistant">
+    <div class="ai-header">
+      <div class="ai-avatar">🤖</div>
+      <div class="ai-header-text">
+        <div class="ai-header-title">CAIP Offsite Assistant</div>
+        <div class="ai-header-sub">Powered by local knowledge + Microsoft Copilot</div>
+      </div>
+      <div class="ai-header-actions">
+        <a class="ai-copilot-link" id="headerCopilotLink"
+           href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener noreferrer"
+           title="Open Microsoft 365 Copilot">✨ M365</a>
+        <button class="ai-close-btn" id="aiClose" aria-label="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="ai-messages" id="aiMessages"></div>
+
+    <div class="ai-chips" id="aiChips">
+      <button class="ai-chip" data-q="When do we arrive?">📅 Arrival time?</button>
+      <button class="ai-chip" data-q="Where is the office?">📍 Where's the office?</button>
+      <button class="ai-chip" data-q="How do I get from O'Hare to AON Center?">✈️ ORD → AON?</button>
+      <button class="ai-chip" data-q="What hotel should I stay at?">🏨 Hotel?</button>
+      <button class="ai-chip" data-q="What is the agenda for Day 1?">📋 Day 1 agenda</button>
+      <button class="ai-chip" data-q="Where are we going for dinner?">🍽️ Dinner options</button>
+      <button class="ai-chip" data-q="Who do I contact for facilities help?">📞 Contacts</button>
+      <button class="ai-chip" data-q="What is there to do in Chicago?">🏙️ Things to do</button>
+    </div>
+
+    <div class="ai-input-row">
+      <textarea class="ai-input" id="aiInput" rows="1"
+        placeholder="Ask anything about the offsite…" aria-label="Type your question"></textarea>
+      <button class="ai-send" id="aiSend" aria-label="Send">➤</button>
+    </div>
+  </div>
+
+  <script>
+  (() => {
+    /* ── KNOWLEDGE BASE ────────────────────────────────── */
+    const K = {
+      dates: "August 17–18, 2026",
+      arriveBy: "1:00 PM CT on Monday, August 17",
+      sessionStart: "2:00 PM CT",
+      departAfter: "after 4:00 PM CT on Tuesday, August 18",
+      address: "200 E Randolph St, Chicago, IL 60601",
+      building: "AON Center",
+      room: "2nd Floor MTC Center — EBC Conference Room",
+      host: "Greg Widerski",
+      hostEmail: "gwiderski@microsoft.com",
+      hostPhone: "917-488-7199",
+      hotel: "Fairmont Chicago Millennium Park",
+      hotelUrl: "https://www.fairmont.com/chicago/",
+      booking: "https://aka.ms/cytric",
+      appUrl: "https://gregwid-ai.github.io/caip-chicago-offsite/",
+      dashUrl: "https://gregwid-ai.github.io/caip-chicago-offsite/dashboard.html",
+    };
+
+    const DAY1 = [
+      { t:"12:00 PM", s:"Arrival, badges & working lunch — arrive by 1:00 PM CT" },
+      { t:"1:00 PM",  s:"Welcome & settle in with Greg / CAIP LT" },
+      { t:"2:00 PM",  s:"CAIP state of the business — scorecard, H1 commitments, pipeline" },
+      { t:"2:50 PM",  s:"H1 execution deep dive — what's on track, what needs intervention" },
+      { t:"3:40 PM",  s:"Break" },
+      { t:"3:55 PM",  s:"CAIP initiatives workstream reviews — each owner covers progress & H2 ask" },
+      { t:"5:55 PM",  s:"Day 1 synthesis & decisions — capture outputs, prep for Day 2" },
+      { t:"6:15 PM",  s:"Transition to evening" },
+      { t:"6:30 PM",  s:"Optional pickleball / social activity (West Loop)" },
+      { t:"7:30 PM",  s:"Team dinner — top pick: Cabra (rooftop), or Duck Duck Goat, Gaijin, Momotaro" },
+    ];
+    const DAY2 = [
+      { t:"8:00 AM",  s:"Breakfast & overnight synthesis — close open prep items" },
+      { t:"8:30 AM",  s:"H2 strategic bets — define the bets that matter most" },
+      { t:"9:30 AM",  s:"Operating model & governance — metrics, cadence, decision rights" },
+      { t:"10:30 AM", s:"Break / breakout calls" },
+      { t:"11:30 AM", s:"Customer & partner motion — top customer moments, partner leverage" },
+      { t:"12:15 PM", s:"Working lunch: risk & dependency map" },
+      { t:"1:00 PM",  s:"Initiative owner commitments — lock H2 outcomes, milestones, asks" },
+      { t:"2:15 PM",  s:"Communications & stakeholder plan — message to the broader team" },
+      { t:"3:00 PM",  s:"Final decision log & next 30 days" },
+      { t:"3:45 PM",  s:"Closeout — confirm outputs, travel timing, artifact owners" },
+      { t:"4:00 PM",  s:"Depart office — book flights after 6:00 PM from ORD or 5:30 PM from MDW" },
+    ];
+
+    /* ── RESPONSE ENGINE ───────────────────────────────── */
+    function respond(q) {
+      const lq = q.toLowerCase();
+      const has = (...words) => words.some(w => lq.includes(w));
+
+      // Greetings
+      if (/^(hi|hello|hey|howdy|good morning|good afternoon|yo|sup)\b/.test(lq.trim())) {
+        return `Hey there! 👋 I'm the CAIP Offsite Assistant — I know everything about the <strong>Chicago Aug 17–18 offsite</strong>. Ask me about the agenda, hotel, travel, dinner, or anything logistics-related. What's on your mind?`;
+      }
+
+      // What is this
+      if (has("what is this","what's this","about","purpose","overview")) {
+        return `This is the <strong>RCG CAIP LT Offsite – Chicago</strong> planning app! 🏙️<br><br>
+<strong>Aug 17–18, 2026</strong> at the <strong>AON Center Microsoft MTC</strong>, Chicago.<br>
+Arrive by <strong>1:00 PM CT on Aug 17</strong>, sessions kick off at 2:00 PM. Depart after 4:00 PM on Aug 18.<br><br>
+Focus: H1 execution, H2 strategic bets, operating model, and team alignment. And of course — great Chicago food. 🍽️`;
+      }
+
+      // Dates & times
+      if (has("when","what date","what day","what time","duration","how long","start time","end time","arrive","arrival","depart","departure")) {
+        return `📅 <strong>Key times:</strong><br>
+• <strong>Arrive by:</strong> 1:00 PM CT, Monday Aug 17<br>
+• <strong>Sessions start:</strong> 2:00 PM CT, Aug 17<br>
+• <strong>Day 2 closes:</strong> ~4:00 PM CT, Aug 18<br>
+• <strong>Depart flights:</strong> ORD after 6:00 PM · MDW after 5:30 PM<br>
+• <strong>Target: land by 11:00 AM on Aug 17</strong> to comfortably make the 1:00 PM arrival`;
+      }
+
+      // Location / where
+      if (has("where","address","location","how do i find","aon","building","room","floor","mtc","ebc","elevator","badge","security","lobby")) {
+        return `📍 <strong>AON Center</strong> — 200 E Randolph St, Chicago, IL 60601<br><br>
+<strong>Arrival steps:</strong><br>
+1️⃣ Enter AON Center lobby<br>
+2️⃣ Security on 1st floor — show government ID for your Microsoft badge<br>
+3️⃣ Look for the <strong>"Microsoft MTC 2nd Floor" sign</strong> on the left (1st bank of elevators)<br>
+4️⃣ Ride up to <strong>2nd Floor MTC Center — EBC Conference Room</strong><br>
+5️⃣ Grab coffee ☕ — session starts 2:00 PM CT`;
+      }
+
+      // Hotel / accommodation / stay
+      if (has("hotel","stay","room","fairmont","accommodation","lodging","overnight","where should i stay","book","cytric")) {
+        return `🏨 <strong>Stay at the Fairmont Chicago Millennium Park</strong><br>
+The best part? It's <strong>directly connected to AON Center</strong> via a climate-controlled indoor corridor — no Chicago weather to fight.<br><br>
+<strong>Book now:</strong> <a href="${K.booking}" target="_blank">aka.ms/cytric ↗</a><br><br>
+<strong>Indoor walking route (3–5 min):</strong><br>
+1️⃣ Exit Fairmont lobby → lower level / lobby concourse<br>
+2️⃣ Follow signs to AON Center building connector<br>
+3️⃣ Walk through indoor corridor<br>
+4️⃣ Elevator up → 2nd Floor MTC<br><br>
+<em>Group rate details coming. Book early — August is peak Chicago season!</em>`;
+      }
+
+      // Travel / flights / transit
+      if (has("fly","flight","airport","ord","o'hare","ohare","midway","mdw","transit","cta","blue line","orange line","uber","lyft","rideshare","get there","getting there","train","bus")) {
+        return `✈️ <strong>Getting to AON Center:</strong><br><br>
+<strong>From O'Hare (ORD):</strong><br>
+• 🚇 CTA Blue Line → Washington/Dearborn · ~45–60 min · $5<br>
+• 🚗 Rideshare (Uber/Lyft) → 200 E Randolph · ~45 min · $35–55<br><br>
+<strong>From Midway (MDW):</strong><br>
+• 🚇 CTA Orange Line → Adams/Wabash · ~35–45 min · $5<br>
+• 🚗 Rideshare → 200 E Randolph · ~35 min · $25–40<br><br>
+<strong>Target:</strong> Land by <strong>11:00 AM on Aug 17</strong> to arrive by 1:00 PM CT.<br>
+<strong>Departing Aug 18:</strong> Book flights after <strong>6:00 PM from ORD</strong> or <strong>5:30 PM from MDW</strong>.`;
+      }
+
+      // Agenda / schedule / sessions
+      if (has("agenda","schedule","session","program","what's on","what are we doing","day 1","day 2","h1","h2","plan for","itinerary")) {
+        const wantD2 = has("day 2","august 18","aug 18","tuesday","second day","h2");
+        const day = wantD2 ? DAY2 : DAY1;
+        const label = wantD2 ? "Day 2 — Tue Aug 18 🚀" : "Day 1 — Mon Aug 17 🏙️";
+        return `📋 <strong>${label}</strong><br><br>${day.map(e=>`<strong>${e.t}</strong> — ${e.s}`).join("<br>")}${wantD2 ? "" : "<br><br><em>Tap 'Day 2 agenda' to see Tuesday's schedule.</em>"}`;
+      }
+
+      // Dinner / evening / restaurant
+      if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","duck duck goat","gaijin","momotaro","pickleball","activity","social")) {
+        return `🍽️ <strong>Evening — Aug 17:</strong><br><br>
+<strong>Optional 6:30 PM:</strong> Pickleball near West Loop (optional, ~60–90 min)<br>
+<strong>Dinner at 7:30 PM</strong> — vote in the Evening tab!<br><br>
+<strong>Restaurant options (all have vegetarian options 🥗):</strong><br>
+🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates<br>
+🦆 <strong>Duck Duck Goat</strong> — Stephanie Izard's modern Chinese, bold flavors<br>
+🍣 <strong>Gaijin</strong> — Japanese Okonomiyaki & street food, super fun & shareable<br>
+🏮 <strong>Momotaro</strong> — Upscale Japanese, Fulton Market, beautiful space<br><br>
+<em>Head to the <strong>Evening</strong> tab to cast your vote!</em> 🗳️`;
+      }
+
+      // Pickleball specifically
+      if (has("pickleball","pickle ball","court","sport","play")) {
+        return `🎾 <strong>Pickleball Plan:</strong><br><br>
+Targeting <strong>West Loop / Fulton Market</strong> courts near dinner — ~60–90 min before we head to eat.<br><br>
+<strong>Options:</strong><br>
+• <a href="https://www.chicagopickleballclub.com/" target="_blank">Chicago Pickleball Club ↗</a><br>
+• <a href="https://www.bigcitypickle.com/" target="_blank">Big City Pickle ↗</a><br><br>
+<strong>Schedule:</strong> 6:30–7:30 PM (optional) → Dinner at 7:30 PM<br>
+<em>Completely optional — no pressure if you have calls or need to decompress after a big Day 1.</em>`;
+      }
+
+      // Contacts / help / facilities / IT / AV
+      if (has("contact","who do i call","help","facilities","av","wifi","wi-fi","badge","access","ester","sara","mark","reception","helpdesk","it support","broken")) {
+        return `📞 <strong>Key Contacts at AON Center:</strong><br><br>
+👩‍💼 <strong>Ester DeKeLaita</strong> (Workplace Coord) — 312-920-5600<br>
+👩 <strong>Sara Snyder</strong> (Receptionist) — 312-920-5600 · <a href="mailto:lbychi09@microsoft.com">lbychi09@microsoft.com</a><br>
+👨‍💼 <strong>Mark Gross</strong> (Workplace Mgr) — 312-920-5813<br><br>
+🖥️ <strong>IT Helpdesk:</strong> (866) 539-4191 or <a href="https://aka.ms/techweb" target="_blank">aka.ms/techweb ↗</a><br>
+📽️ <strong>AV Issues:</strong> <a href="mailto:AVLINK@microsoft.com">AVLINK@microsoft.com</a> or Global Helpdesk option 6 → 1<br>
+🏢 <strong>Facilities:</strong> <a href="https://www.msfacilities.com/" target="_blank">msfacilities.com ↗</a><br>
+🪪 <strong>Badge Access:</strong> See Logistics tab quick links (requires VPN)`;
+      }
+
+      // Dress code / attire
+      if (has("dress","wear","attire","formal","casual","business casual","what should i wear")) {
+        return `👔 <strong>Dress code:</strong> Business casual for working sessions.<br><br>
+We're in the Microsoft MTC space — smart casual is perfect. Think: no tie required, but look sharp.<br><br>
+For the <strong>evening event</strong> (pickleball + dinner), feel free to bring a change of clothes or dress down. Comfortable shoes recommended for pickleball. 🎾`;
+      }
+
+      // Who is coming / team
+      if (has("who","attendees","participants","team","people coming","roster","list")) {
+        return `👥 <strong>14 attendees confirmed:</strong><br><br>
+Rich Lyons · Rich April · David Kirgis · Dheepa Iyer · Travis Coleman · Mark Quinalty · Scott Garvey · Jamie Hansen · Leigh Helms · JC Selph · Dino Ungaro · Donald Hampton · Anthony Cafarelli · Greg Widerski<br><br>
+<strong>Logistics lead:</strong> Greg Widerski (${K.hostPhone} · <a href="mailto:${K.hostEmail}">${K.hostEmail}</a>)`;
+      }
+
+      // Parking
+      if (has("parking","park","drive","car","drove")) {
+        return `🚗 <strong>Parking near AON Center:</strong><br><br>
+• <strong>AON Center Garage</strong> — directly connected to the building (~$35–50/day)<br>
+• <strong>Millennium Park Garage</strong> — 5 min walk, often cheaper<br>
+• <strong>Tip:</strong> Rideshare or CTA is usually easier & cheaper than driving downtown. Less stress, no parking search. Rideshare from ORD: $35–55, from MDW: $25–40.`;
+      }
+
+      // WiFi
+      if (has("wifi","wi-fi","internet","network","connect","password")) {
+        return `📶 <strong>WiFi at AON Center Microsoft Office:</strong><br><br>
+• Connect to <strong>CorpNet</strong> with your Microsoft credentials<br>
+• Guest WiFi available — ask Ester or Sara at reception<br>
+• <strong>IT issues?</strong> Call (866) 539-4191 or visit <a href="https://aka.ms/techweb" target="_blank">aka.ms/techweb ↗</a>`;
+      }
+
+      // Chicago things to do / explore
+      if (has("chicago","things to do","explore","sightseeing","tourist","what to see","free time","activities","weather","fun","weekend","before","after")) {
+        return `🏙️ <strong>Chicago Aug 17–18 highlights:</strong><br><br>
+🎡 <strong>Millennium Park</strong> — steps from AON · The Bean, concerts · Free<br>
+✈️ <strong>Air & Water Show</strong> — Aug 15–16 (arrive early to catch it!)<br>
+⛵ <strong>Architecture River Cruise</strong> — daily, 75 min, highly recommended<br>
+🖼️ <strong>Art Institute</strong> — world-class, 5 min from AON<br>
+🍕 <strong>Lou Malnati's</strong> — deep dish, non-negotiable<br>
+🏖️ <strong>Lake Michigan beaches</strong> — 10 min rideshare<br><br>
+☀️ <strong>Weather Aug 17–18:</strong> Highs 78–86°F, partly cloudy, lake breeze. Perfect rooftop weather.<br><br>
+<em>Check the <strong>🌆 Chicago tab</strong> for the full guide with links!</em>`;
+      }
+
+      // App URL / link / share
+      if (has("url","link","share","app","website","send")) {
+        return `🔗 <strong>Shareable links:</strong><br><br>
+📱 <strong>Planning App:</strong> <a href="${K.appUrl}" target="_blank">gregwid-ai.github.io/caip-chicago-offsite/ ↗</a><br>
+📊 <strong>Agent Dashboard:</strong> <a href="${K.dashUrl}" target="_blank">…/dashboard.html ↗</a><br>
+🏨 <strong>Hotel Booking (Cytric):</strong> <a href="${K.booking}" target="_blank">aka.ms/cytric ↗</a>`;
+      }
+
+      // Outputs / goals / what will we accomplish
+      if (has("output","goal","deliverable","accomplish","what will we","what are we trying","objective","result","outcome")) {
+        return `🎯 <strong>Offsite goals & outputs:</strong><br><br>
+<strong>Focus:</strong> H1 execution + H2 build priorities<br><br>
+<strong>Key outputs we're targeting:</strong><br>
+• CAIP H2 narrative (one-pager)<br>
+• Scorecard commitments & metrics<br>
+• Risk & decision log with owners<br>
+• Operating model & governance clarity<br>
+• Stakeholder engagement plan<br>
+• Next 30-day action plan<br><br>
+<em>This is a <strong>working session</strong> — come ready to make decisions and own outcomes. 🚀</em>`;
+      }
+
+      // Copilot / AI / work knowledge fallback — suggest M365 escalation
+      return null;
+    }
+
+    /* ── CHAT UI LOGIC ─────────────────────────────────── */
+    const panel = document.getElementById("aiPanel");
+    const fab   = document.getElementById("aiFab");
+    const msgs  = document.getElementById("aiMessages");
+    const input = document.getElementById("aiInput");
+    const send  = document.getElementById("aiSend");
+    const chips = document.getElementById("aiChips");
+
+    let busy = false;
+    let opened = false;
+
+    function scrollBottom() {
+      msgs.scrollTo({ top: msgs.scrollHeight, behavior: "smooth" });
+    }
+
+    function addMsg(role, html) {
+      const wrap = document.createElement("div");
+      wrap.className = "ai-msg " + role;
+      if (role === "bot") {
+        wrap.innerHTML = `<div class="ai-msg-avatar">🤖</div><div class="ai-bubble">${html}</div>`;
+      } else {
+        wrap.innerHTML = `<div class="ai-bubble">${html.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</div>`;
+      }
+      msgs.appendChild(wrap);
+      scrollBottom();
+      return wrap;
+    }
+
+    function showTyping() {
+      const row = document.createElement("div");
+      row.className = "ai-typing-row";
+      row.id = "aiTyping";
+      row.innerHTML = `<div class="ai-msg-avatar">🤖</div><div class="ai-typing-bubble"><span></span><span></span><span></span></div>`;
+      msgs.appendChild(row);
+      scrollBottom();
+    }
+
+    function removeTyping() {
+      const t = document.getElementById("aiTyping");
+      if (t) t.remove();
+    }
+
+    function escalateHtml(question) {
+      const encoded = encodeURIComponent(`Context: I'm attending the RCG CAIP LT Chicago Offsite on August 17-18, 2026 at AON Center. Question: ${question}`);
+      return `<div class="ai-escalate">
+        <span>Need deeper context from your work data?</span>
+        <a class="ai-copilot-link" href="https://m365.cloud.microsoft/chat?q=${encoded}" target="_blank" rel="noopener noreferrer">✨ Ask M365 Copilot</a>
+      </div>`;
+    }
+
+    function askQuestion(question) {
+      if (busy || !question.trim()) return;
+      busy = true;
+      send.disabled = true;
+      addMsg("user", question.trim());
+      chips.style.display = "none";
+      const delay = 500 + Math.random() * 600;
+      showTyping();
+
+      setTimeout(() => {
+        removeTyping();
+        const answer = respond(question);
+        if (answer) {
+          addMsg("bot", answer);
+        } else {
+          // Unknown question — escalate to M365 Copilot
+          const enc = encodeURIComponent(`Context: I'm attending the RCG CAIP LT Chicago Offsite (Aug 17–18, 2026, AON Center, Chicago). ${question}`);
+          addMsg("bot", `I don't have that specific info in my knowledge base, but <strong>Microsoft 365 Copilot</strong> can look it up from your connected work data (emails, SharePoint, Teams, etc.)!${escalateHtml(question)}`);
+        }
+        busy = false;
+        send.disabled = false;
+        input.focus();
+      }, delay);
+    }
+
+    // Fab toggle
+    fab.addEventListener("click", () => {
+      const hidden = panel.hidden;
+      panel.hidden = !hidden;
+      fab.querySelector(".ai-badge").textContent = hidden ? "✕" : "AI";
+      if (hidden && !opened) {
+        opened = true;
+        addMsg("bot", `Hey! 👋 I'm the <strong>CAIP Offsite Assistant</strong> — your go-to for everything about the <strong>Chicago Aug 17–18 offsite</strong>.<br><br>I can answer questions about the agenda, hotel, travel, dinner, contacts, and Chicago. For deeper work context I'll connect you straight to <strong>Microsoft 365 Copilot</strong>.<br><br>What would you like to know? 🏙️`);
+        scrollBottom();
+      }
+    });
+
+    document.getElementById("aiClose").addEventListener("click", () => {
+      panel.hidden = true;
+      fab.querySelector(".ai-badge").textContent = "AI";
+    });
+
+    // Send button
+    send.addEventListener("click", () => {
+      const q = input.value.trim();
+      if (!q) return;
+      input.value = "";
+      input.style.height = "auto";
+      askQuestion(q);
+    });
+
+    // Enter to send (shift+enter for newline)
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        send.click();
+      }
+    });
+
+    // Auto-resize textarea
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 88) + "px";
+    });
+
+    // Quick chips
+    chips.addEventListener("click", e => {
+      const chip = e.target.closest(".ai-chip");
+      if (chip) askQuestion(chip.dataset.q);
+    });
+
+    // Header Copilot link: update with current input as context if available
+    input.addEventListener("input", () => {
+      const link = document.getElementById("headerCopilotLink");
+      const q = input.value.trim();
+      if (q) {
+        const enc = encodeURIComponent(`Context: RCG CAIP LT Chicago Offsite Aug 17–18, 2026. ${q}`);
+        link.href = `https://m365.cloud.microsoft/chat?q=${enc}`;
+      } else {
+        link.href = "https://m365.cloud.microsoft/chat";
+      }
+    });
+
+  })();
+  </script>
 </body>
-</html>
