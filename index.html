@@ -660,6 +660,7 @@
         <div class="quick-links">
           <a class="qlink" href="https://www.msfacilities.com/" target="_blank" rel="noopener noreferrer">&#128295; Facilities Request</a>
           <a class="qlink" href="https://aka.ms/bookaroom" target="_blank" rel="noopener noreferrer">&#128197; Book A Room</a>
+          <a class="qlink" href="https://teams.microsoft.com/meet/288395900325392?p=UnCwByKPynx1b12lf8" target="_blank" rel="noopener noreferrer">&#128187; Join Teams Meeting</a>
           <a class="qlink" href="https://aka.ms/techweb" target="_blank" rel="noopener noreferrer">&#128187; IT Helpdesk</a>
           <a class="qlink" href="mailto:AVLINK@microsoft.com">&#127909; AV Support</a>
           <a class="qlink" href="https://microsoft.sharepoint.com/sites/globalsecurity/SitePages/Services-GSAM-GSAMSelfServicePortal.aspx" target="_blank" rel="noopener noreferrer">&#129394; Badge / Access Request</a>
@@ -677,6 +678,11 @@
           <h2>Breakout rooms</h2>
           <p><strong>Reserve:</strong> 3&ndash;4 additional rooms for confidential calls, customer escalations, and breakout workstreams.</p>
           <p><strong>Pattern:</strong> 1 exec call room, 2 working-team rooms.</p>
+        </article>
+        <article class="card">
+          <h2>Virtual join details</h2>
+          <p><strong>Join:</strong> <a href="https://teams.microsoft.com/meet/288395900325392?p=UnCwByKPynx1b12lf8" target="_blank" rel="noopener noreferrer">Microsoft Teams meeting &#x2197;</a></p>
+          <p><strong>Meeting ID:</strong> 288 395 900 325 392<br><strong>Passcode:</strong> 6Yz3bq6q</p>
         </article>
         <article class="card" style="grid-column: 1 / -1;">
           <h2>Hotel block</h2>
@@ -1158,6 +1164,14 @@ Focus: H1 execution, H2 strategic bets, operating model, and team alignment. And
 • <strong>Day 2 closes:</strong> ~4:00 PM CT, Aug 18<br>
 • <strong>Depart flights:</strong> ORD after 6:00 PM · MDW after 5:30 PM<br>
 • <strong>Target: land by 11:00 AM on Aug 17</strong> to comfortably make the 1:00 PM arrival`;
+      }
+
+      // Virtual / Teams join details
+      if (has("virtual","teams","join","meeting link","passcode","meeting id","online option","remote")) {
+        return `💻 <strong>Virtual option — Microsoft Teams:</strong><br><br>
+<strong>Join:</strong> <a href="https://teams.microsoft.com/meet/288395900325392?p=UnCwByKPynx1b12lf8" target="_blank">Join the meeting ↗</a><br>
+<strong>Meeting ID:</strong> 288 395 900 325 392<br>
+<strong>Passcode:</strong> 6Yz3bq6q`;
       }
 
       // Location / where
