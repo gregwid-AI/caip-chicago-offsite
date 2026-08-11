@@ -933,12 +933,11 @@
         { id:"d2-1",  time:"8:30",  title:"H2 strategic bets",                        tag:"Planning",            body:"Define the few H2 bets that matter most and the investment tradeoffs needed to execute." },
         { id:"d2-2",  time:"9:30",  title:"Operating model and governance",           tag:"Business management",  body:"Confirm metrics, meeting cadence, decision rights, escalation paths, and monthly business review format." },
         { id:"d2-3",  time:"10:30", title:"Break / calls",                            tag:"Logistics",           body:"Use breakout rooms for customer or internal calls." },
-        { id:"d2-5",  time:"11:30", title:"Customer and partner motion",              tag:"Field strategy",      body:"Clarify top customer moments and partner leverage." },
-        { id:"d2-6",  time:"12:15", title:"Working lunch: risk and dependency map",   tag:"Execution",           body:"Build top risks, dependency owners, and mitigation plan." },
+        { id:"d2-5",  time:"11:30", title:"Partner spotlight (90 min) — working lunch", tag:"Partners",          body:"Unconfirmed — 90-minute block for partner presentations: 3Cloud, MAQ Software, Moderne, and CloudMoyo. Lunch served during session. Final partner lineup TBD." },
         { id:"d2-7",  time:"1:00",  title:"Initiative owner commitments",             tag:"Accountability",      body:"Each owner locks H2 outcomes, milestones, measures, and asks." },
-        { id:"d2-8",  time:"2:15",  title:"Communications and stakeholder plan",      tag:"Change management",   body:"Draft the message to the broader team: priorities, why now, how success will be measured." },
-        { id:"d2-9",  time:"3:00",  title:"Final decision log and next 30 days",      tag:"Decisions",           body:"Review decisions, action owners, due dates, and operating cadence." },
-        { id:"d2-10", time:"3:45",  title:"Closeout",                                 tag:"Greg / CAIP LT",      body:"Confirm outputs, travel timing, and follow-up artifact owners." },
+        { id:"d2-8",  time:"2:00",  title:"Communications and stakeholder plan",      tag:"Change management",   body:"Draft the message to the broader team: priorities, why now, how success will be measured." },
+        { id:"d2-9",  time:"2:40",  title:"Final decision log and next 30 days",      tag:"Decisions",           body:"Review decisions, action owners, due dates, and operating cadence." },
+        { id:"d2-10", time:"3:15",  title:"Closeout",                                 tag:"Greg / CAIP LT",      body:"Confirm outputs, travel timing, and follow-up artifact owners." },
         { id:"d2-11", time:"4:00",  title:"Depart office",                            tag:"Travel",              body:"Attendees depart AON Center for ORD, MDW, hotel, or local commitments." }
       ]
     };
@@ -1138,12 +1137,11 @@
       { t:"8:30 AM",  s:"H2 strategic bets — define the bets that matter most" },
       { t:"9:30 AM",  s:"Operating model & governance — metrics, cadence, decision rights" },
       { t:"10:30 AM", s:"Break / breakout calls" },
-      { t:"11:30 AM", s:"Customer & partner motion — top customer moments, partner leverage" },
-      { t:"12:15 PM", s:"Working lunch: risk & dependency map" },
+      { t:"11:30 AM", s:"Partner spotlight (90 min) — working lunch; 3Cloud, MAQ Software, Moderne, CloudMoyo (unconfirmed)" },
       { t:"1:00 PM",  s:"Initiative owner commitments — lock H2 outcomes, milestones, asks" },
-      { t:"2:15 PM",  s:"Communications & stakeholder plan — message to the broader team" },
-      { t:"3:00 PM",  s:"Final decision log & next 30 days" },
-      { t:"3:45 PM",  s:"Closeout — confirm outputs, travel timing, artifact owners" },
+      { t:"2:00 PM",  s:"Communications & stakeholder plan — message to the broader team" },
+      { t:"2:40 PM",  s:"Final decision log & next 30 days" },
+      { t:"3:15 PM",  s:"Closeout — confirm outputs, travel timing, artifact owners" },
       { t:"4:00 PM",  s:"Depart office — book flights after 6:00 PM from ORD or 5:30 PM from MDW" },
     ];
 
@@ -1283,8 +1281,9 @@ For the <strong>evening event</strong> (pickleball + dinner), feel free to bring
 
       // Who is coming / team
       if (has("who","attendees","participants","team","people coming","roster","list")) {
-        return `👥 <strong>14 attendees confirmed:</strong><br><br>
-Rich Lyons · Rich April · David Kirgis · Dheepa Iyer · Travis Coleman · Mark Quinalty · Scott Garvey · Jamie Hansen · Leigh Helms · JC Selph · Dino Ungaro · Donald Hampton · Anthony Cafarelli · Greg Widerski<br><br>
+        return `👥 <strong>15 attendees in person:</strong><br><br>
+Rich Lyons · Rich April · David Kirgis · Dheepa Iyer · Travis Coleman · Mark Quinalty · Scott Garvey · Jamie Hansen · Leigh Helms · JC Selph · Dino Ungaro · Donald Hampton · Anthony Cafarelli · Nicole Papineau Richard · Greg Widerski<br><br>
+📡 <strong>Joining remotely:</strong> Brad Vernier · Aida DeWitt · Tom Young · Poornima Sathyanarayana · Elliot Oshman · Alexa Krause · David Powell (RCG) · Eric Steinman<br><br>
 <strong>Logistics lead:</strong> Greg Widerski (${K.hostPhone} · <a href="mailto:${K.hostEmail}">${K.hostEmail}</a>)`;
       }
 
