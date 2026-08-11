@@ -722,12 +722,21 @@
     </section>
 
     <section id="evening" class="section" hidden>
+      <article class="card" style="margin-bottom:14px;border-color:var(--border-hover);">
+        <h2>&#x1F37D;&#xFE0F; Team dinner &mdash; confirmed</h2>
+        <p><strong>Cabra, 7:00 PM on Aug 17</strong> &mdash; generously sponsored by <strong>3Cloud</strong>. If Cabra is unavailable, fallback is <strong>Duck Duck Goat</strong>.</p>
+      </article>
+      <article class="card" style="margin-bottom:14px;">
+        <h2>&#x1F3B5; Team playlist &mdash; "One Song" icebreaker</h2>
+        <p>Before we meet on Aug 17, add the song you're sharing (per Travis's homework) directly to our collaborative Spotify playlist &mdash; anyone with the link can add a track.</p>
+        <p><a href="#" id="playlist-link" target="_blank" rel="noopener noreferrer">Add your song to the playlist &#x2197;</a> <span class="small muted">(link coming soon &mdash; check back or ask Greg)</span></p>
+      </article>
       <div class="grid">
         <article class="choice">
-          <div class="rank">&#x1F31F; Top Pick</div>
+          <div class="rank">&#x1F31F; Confirmed &mdash; Sponsored by 3Cloud</div>
           <h2><a href="https://www.cabrachicago.com/" target="_blank" rel="noopener noreferrer">Cabra &#x2197;</a></h2>
-          <p>Rooftop Latin restaurant at the Hoxton Hotel, West Loop. Stunning views, shared plates, cocktails &mdash; perfect for groups. &#x1F966; Vegetarian options</p>
-          <div class="pillrow"><span class="pill">Rooftop</span><span class="pill">West Loop</span><span class="pill">Latin</span><span class="pill">Group-friendly</span></div>
+          <p>Rooftop Latin restaurant at the Hoxton Hotel, West Loop. Stunning views, shared plates, cocktails &mdash; perfect for groups. &#x1F966; Vegetarian options. Reservation at 7:00 PM, Aug 17.</p>
+          <div class="pillrow"><span class="pill">Rooftop</span><span class="pill">West Loop</span><span class="pill">Latin</span><span class="pill">Sponsored by 3Cloud</span></div>
           <div class="vote-row">
             <button class="vote-btn" data-restaurant="cabra">&#x1F44D; Vote</button>
             <span class="vote-count" id="count-cabra">0 votes</span>
@@ -909,7 +918,7 @@
     const agendaDefaults = {
       "17": [
         { id:"d1-0",  time:"12:00", title:"Arrival, badges, lunch pickup",            tag:"Logistics",           body:"Attendees arrive at AON Center, collect badges, grab a working lunch, and settle in. Arrive by 1:00 PM CT." },
-        { id:"d1-1",  time:"1:00",  title:"Welcome and settle in",                    tag:"Greg / CAIP LT",      body:"Settle in, grab coffee, reconnect as a team. Confirm outcomes, working norms, and expected deliverables for the two-day session." },
+        { id:"d1-1",  time:"1:00",  title:"Welcome & \"One Song\" icebreaker",         tag:"Greg / Travis",       body:"Homework from Travis: everyone picked one song that says something about who they are and posted the title, artist, and key lyrics in Teams ahead of time (no explanation given yet). We'll read the lyrics aloud, each person shares why they picked their song, and we listen to a bit of it together. Add your song to the team playlist before we meet: see the Evening tab for the link." },
         { id:"d1-2",  time:"2:00",  title:"CAIP state of the business",               tag:"Business management",  body:"Review current scorecard, H1 commitments, pipeline, blockers, field signals, and customer impact. Official session start." },
         { id:"d1-3",  time:"2:50",  title:"H1 execution deep dive",                   tag:"Execution",           body:"Identify what is on track, what needs intervention, and where LT decisions are required." },
         { id:"d1-4",  time:"3:40",  title:"Break",                                    tag:"Logistics",           body:"Refresh, calls, and room reset." },
@@ -917,7 +926,7 @@
         { id:"d1-7",  time:"5:55",  title:"Day 1 synthesis",                          tag:"Decisions",           body:"Capture decisions, unresolved issues, and prep needed for Day 2." },
         { id:"d1-8",  time:"6:15",  title:"Transition to evening",                    tag:"Social",              body:"Rideshare or walk to West Loop/Fulton Market for pickleball or reception." },
         { id:"d1-9",  time:"6:30",  title:"Optional pickleball / social activity",    tag:"Team engagement",     body:"60-90 minute light activity near dinner location. Optional for travel fatigue and calls." },
-        { id:"d1-10", time:"7:30",  title:"Team dinner",                              tag:"Engagement",          body:"Top pick: Cabra (rooftop, West Loop). Alternatives: Duck Duck Goat, Gaijin, Momotaro." }
+        { id:"d1-10", time:"7:00",  title:"Team dinner — sponsored by 3Cloud",         tag:"Engagement",          body:"Reservation at Cabra (rooftop, West Loop) for 7:00 PM, generously sponsored by 3Cloud. Fallback: Duck Duck Goat if Cabra is unavailable." }
       ],
       "18": [
         { id:"d2-0",  time:"8:00",  title:"Breakfast and overnight synthesis",        tag:"Logistics",           body:"Review Day 1 outputs, close open prep items, and align on Day 2 decisions." },
@@ -1114,7 +1123,7 @@
 
     const DAY1 = [
       { t:"12:00 PM", s:"Arrival, badges & working lunch — arrive by 1:00 PM CT" },
-      { t:"1:00 PM",  s:"Welcome & settle in with Greg / CAIP LT" },
+      { t:"1:00 PM",  s:"Welcome & \"One Song\" icebreaker — share the song you posted in Teams" },
       { t:"2:00 PM",  s:"CAIP state of the business — scorecard, H1 commitments, pipeline" },
       { t:"2:50 PM",  s:"H1 execution deep dive — what's on track, what needs intervention" },
       { t:"3:40 PM",  s:"Break" },
@@ -1122,7 +1131,7 @@
       { t:"5:55 PM",  s:"Day 1 synthesis & decisions — capture outputs, prep for Day 2" },
       { t:"6:15 PM",  s:"Transition to evening" },
       { t:"6:30 PM",  s:"Optional pickleball / social activity (West Loop)" },
-      { t:"7:30 PM",  s:"Team dinner — top pick: Cabra (rooftop), or Duck Duck Goat, Gaijin, Momotaro" },
+      { t:"7:00 PM",  s:"Team dinner (sponsored by 3Cloud) — Cabra (rooftop); fallback Duck Duck Goat" },
     ];
     const DAY2 = [
       { t:"8:00 AM",  s:"Breakfast & overnight synthesis — close open prep items" },
@@ -1223,13 +1232,10 @@ The best part? It's <strong>directly connected to AON Center</strong> via a clim
       if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","duck duck goat","gaijin","momotaro","pickleball","activity","social")) {
         return `🍽️ <strong>Evening — Aug 17:</strong><br><br>
 <strong>Optional 6:30 PM:</strong> Pickleball near West Loop (optional, ~60–90 min)<br>
-<strong>Dinner at 7:30 PM</strong> — vote in the Evening tab!<br><br>
-<strong>Restaurant options (all have vegetarian options 🥗):</strong><br>
-🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates<br>
-🦆 <strong>Duck Duck Goat</strong> — Stephanie Izard's modern Chinese, bold flavors<br>
-🍣 <strong>Gaijin</strong> — Japanese Okonomiyaki & street food, super fun & shareable<br>
-🏮 <strong>Momotaro</strong> — Upscale Japanese, Fulton Market, beautiful space<br><br>
-<em>Head to the <strong>Evening</strong> tab to cast your vote!</em> 🗳️`;
+<strong>Dinner at 7:00 PM — Cabra</strong>, sponsored by 3Cloud 🎉 (confirmed reservation)<br>
+<strong>Fallback:</strong> Duck Duck Goat if Cabra is unavailable<br><br>
+🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates. Vegetarian options 🥗<br><br>
+<em>Also — don't forget to add your song to the team playlist ahead of the "One Song" icebreaker on Day 1! Check the Evening tab for the link.</em> 🎵`;
       }
 
       // Pickleball specifically
@@ -1240,8 +1246,20 @@ Targeting <strong>West Loop / Fulton Market</strong> courts near dinner — ~60�
 • Search on <a href="https://www.google.com/maps/search/pickleball+courts+chicago+west+loop/" target="_blank">Google Maps: "pickleball courts West Loop Chicago" ↗</a><br>
 • Call the facility directly to reserve (2–3 hour advance booking is typical)<br>
 • OR ask <strong>Ester DeKeLaita</strong> (Fairmont/AON concierge) at <strong>312-920-5600</strong> — she can point you to the best available options<br><br>
-<strong>Schedule:</strong> 6:30–7:30 PM (optional) → Dinner at 7:30 PM<br>
+<strong>Schedule:</strong> 5:30–7:00 PM (optional) → Dinner at 7:00 PM (Cabra, sponsored by 3Cloud)<br>
 <em>Completely optional — no pressure if you have calls or need to decompress after a big Day 1.</em>`;
+      }
+
+      // Song icebreaker / playlist
+      if (has("song","playlist","spotify","icebreaker","homework","lyrics","travis")) {
+        return `🎵 <strong>"One Song" Icebreaker (homework from Travis):</strong><br><br>
+Before we meet on Aug 17, pick <strong>one song that tells us something about who you are</strong> — where you came from, what shaped you, what you value, or just a side of you we haven't seen.<br><br>
+<strong>Before we meet:</strong><br>
+• Post the song title, artist, and the lyrics that matter most to you in the Teams chat<br>
+• Don't explain why yet — save that for the room<br>
+• Add the track to our <strong>team Spotify playlist</strong> (link in the Evening tab)<br><br>
+<strong>At the meeting (1:00 PM, Aug 17):</strong> we'll read your lyrics, you'll share why you picked it, and we'll listen to a bit of it together.<br><br>
+<em>Have fun with it — meaningful, funny, nostalgic, anything authentic works!</em>`;
       }
 
       // Contacts / help / facilities / IT / AV
