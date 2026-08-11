@@ -771,8 +771,8 @@
       </article>
       <article class="card" style="margin-bottom:14px;">
         <h2>&#x1F3B5; Team playlist &mdash; "One Song" icebreaker</h2>
-        <p>Before we meet on Aug 17, add the song you're sharing (per Travis's homework) directly to our collaborative Spotify playlist &mdash; anyone with the link can add a track.</p>
-        <p><a href="https://open.spotify.com/playlist/29TZ0X1sV7Lm0o7qPiked5?si=qsD64kgPTv6oo6iytb0VUQ" id="playlist-link" target="_blank" rel="noopener noreferrer">Add your song to the playlist &#x2197;</a></p>
+        <p>We&rsquo;ll use this collaborative playlist to compile everyone&rsquo;s songs as we go during the offsite.</p>
+        <p><a href="https://open.spotify.com/playlist/29TZ0X1sV7Lm0o7qPiked5?si=qsD64kgPTv6oo6iytb0VUQ" id="playlist-link" target="_blank" rel="noopener noreferrer">Open the team playlist &#x2197;</a></p>
       </article>
       <div class="grid">
         <article class="choice">
@@ -956,7 +956,7 @@
     const agendaDefaults = {
       "17": [
         { id:"d1-0",  time:"12:00", title:"Arrival, badges, lunch pickup",            tag:"Logistics",           body:"Attendees arrive at AON Center, collect badges, grab a working lunch, and settle in. Arrive by 1:00 PM CT." },
-        { id:"d1-1",  time:"1:00",  title:"Welcome & \"One Song\" icebreaker",         tag:"Greg / Travis",       body:"Homework from Travis: everyone picked one song that says something about who they are and posted the title, artist, and key lyrics in Teams ahead of time (no explanation given yet). We'll read the lyrics aloud, each person shares why they picked their song, and we listen to a bit of it together. Add your song to the team playlist before we meet: see the Evening tab for the link." },
+        { id:"d1-1",  time:"1:00",  title:"Welcome & \"One Song\" icebreaker",         tag:"Greg / Travis",       body:"We will use the collaborative Spotify playlist to compile everyone’s songs as we go during the offsite, then share the stories and context behind the selections together." },
         { id:"d1-2",  time:"2:00",  title:"CAIP state of the business",               tag:"Business management",  body:"Review current scorecard, H1 commitments, pipeline, blockers, field signals, and customer impact. Official session start." },
         { id:"d1-3",  time:"2:50",  title:"H1 execution deep dive",                   tag:"Execution",           body:"Identify what is on track, what needs intervention, and where LT decisions are required." },
         { id:"d1-4",  time:"3:40",  title:"Break",                                    tag:"Logistics",           body:"Refresh, calls, and room reset." },
@@ -1159,7 +1159,7 @@
 
     const DAY1 = [
       { t:"12:00 PM", s:"Arrival, badges & working lunch — arrive by 1:00 PM CT" },
-      { t:"1:00 PM",  s:"Welcome & \"One Song\" icebreaker — share the song you posted in Teams" },
+      { t:"1:00 PM",  s:"Welcome & \"One Song\" icebreaker — build the collaborative playlist together" },
       { t:"2:00 PM",  s:"CAIP state of the business — scorecard, H1 commitments, pipeline" },
       { t:"2:50 PM",  s:"H1 execution deep dive — what's on track, what needs intervention" },
       { t:"3:40 PM",  s:"Break" },
@@ -1268,19 +1268,14 @@ The best part? It's <strong>directly connected to AON Center</strong> via a clim
 <strong>Dinner at 7:00 PM — Cabra</strong>, sponsored by 3Cloud 🎉 (confirmed reservation)<br>
 <strong>Fallback:</strong> Duck Duck Goat if Cabra is unavailable<br><br>
 🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates. Vegetarian options 🥗<br><br>
-<em>Also — don't forget to add your song to the team playlist ahead of the "One Song" icebreaker on Day 1! Check the Evening tab for the link.</em> 🎵`;
+<em>We&rsquo;ll use the collaborative Spotify playlist to compile everyone&rsquo;s songs as we go during the offsite.</em> 🎵`;
       }
 
       // Song icebreaker / playlist
-      if (has("song","playlist","spotify","icebreaker","homework","lyrics","travis")) {
-        return `🎵 <strong>"One Song" Icebreaker (homework from Travis):</strong><br><br>
-Before we meet on Aug 17, pick <strong>one song that tells us something about who you are</strong> — where you came from, what shaped you, what you value, or just a side of you we haven't seen.<br><br>
-<strong>Before we meet:</strong><br>
-• Post the song title, artist, and the lyrics that matter most to you in the Teams chat<br>
-• Don't explain why yet — save that for the room<br>
-• Add the track to our <strong>team Spotify playlist</strong> (link in the Evening tab)<br><br>
-<strong>At the meeting (1:00 PM, Aug 17):</strong> we'll read your lyrics, you'll share why you picked it, and we'll listen to a bit of it together.<br><br>
-<em>Have fun with it — meaningful, funny, nostalgic, anything authentic works!</em>`;
+      if (has("song","playlist","spotify","icebreaker","lyrics")) {
+        return `🎵 <strong>"One Song" Icebreaker:</strong><br><br>
+We&rsquo;ll use our <strong>collaborative Spotify playlist</strong> to compile everyone&rsquo;s songs as we go during the offsite.<br><br>
+<a href="https://open.spotify.com/playlist/29TZ0X1sV7Lm0o7qPiked5?si=qsD64kgPTv6oo6iytb0VUQ" target="_blank" rel="noopener noreferrer">Open the team playlist ↗</a>`;
       }
 
       // Contacts / help / facilities / IT / AV
