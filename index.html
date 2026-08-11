@@ -815,11 +815,6 @@
             <span class="vote-count" id="count-momotaro">0 votes</span>
           </div>
         </article>
-        <article class="card">
-          <h2>Pickleball logistics</h2>
-          <p>Best target is a West Loop/Fulton Market court option that can pair with dinner. Hold a 60&ndash;90 minute window before dinner, roughly 5:30&ndash;7:00 PM, with dinner at 7:30 PM.</p>
-          <p><strong>Plan A:</strong> Search for local courts on Google Maps — search <a href="https://www.google.com/maps/search/pickleball+courts+chicago+west+loop/" target="_blank" rel="noopener noreferrer">"pickleball courts near West Loop Chicago" &#x2197;</a> and call to reserve. Many indoor/outdoor facilities are available with 2–3 hour advance booking. <strong>Plan B:</strong> Ask the Fairmont or AON Center concierge (Ester DeKeLaita: 312-920-5600) for current pickleball court recommendations. <strong>Plan C:</strong> Skip activity and extend dinner reception if weather or availability is poor.</p>
-        </article>
       </div>
     </section>
     <section id="chicago" class="section" hidden>
@@ -967,8 +962,7 @@
         { id:"d1-4",  time:"3:40",  title:"Break",                                    tag:"Logistics",           body:"Refresh, calls, and room reset." },
         { id:"d1-5",  time:"3:55",  title:"CAIP initiatives: workstream reviews",     tag:"Initiatives",         body:"Each initiative owner covers goal, H1 progress, H2 ask, dependencies, and next decision." },
         { id:"d1-7",  time:"5:55",  title:"Day 1 synthesis",                          tag:"Decisions",           body:"Capture decisions, unresolved issues, and prep needed for Day 2." },
-        { id:"d1-8",  time:"6:15",  title:"Transition to evening",                    tag:"Social",              body:"Rideshare or walk to West Loop/Fulton Market for pickleball or reception." },
-        { id:"d1-9",  time:"6:30",  title:"Optional pickleball / social activity",    tag:"Team engagement",     body:"60-90 minute light activity near dinner location. Optional for travel fatigue and calls." },
+        { id:"d1-8",  time:"6:15",  title:"Transition to evening",                    tag:"Social",              body:"Rideshare or walk to West Loop/Fulton Market for the dinner reception." },
         { id:"d1-10", time:"7:00",  title:"Team dinner — sponsored by 3Cloud",         tag:"Engagement",          body:"Reservation at Cabra (rooftop, West Loop) for 7:00 PM, generously sponsored by 3Cloud. Fallback: Duck Duck Goat if Cabra is unavailable." }
       ],
       "18": [
@@ -1172,7 +1166,6 @@
       { t:"3:55 PM",  s:"CAIP initiatives workstream reviews — each owner covers progress & H2 ask" },
       { t:"5:55 PM",  s:"Day 1 synthesis & decisions — capture outputs, prep for Day 2" },
       { t:"6:15 PM",  s:"Transition to evening" },
-      { t:"6:30 PM",  s:"Optional pickleball / social activity (West Loop)" },
       { t:"7:00 PM",  s:"Team dinner (sponsored by 3Cloud) — Cabra (rooftop); fallback Duck Duck Goat" },
     ];
     const DAY2 = [
@@ -1270,25 +1263,12 @@ The best part? It's <strong>directly connected to AON Center</strong> via a clim
       }
 
       // Dinner / evening / restaurant
-      if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","duck duck goat","gaijin","momotaro","pickleball","activity","social")) {
+      if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","duck duck goat","gaijin","momotaro","activity","social")) {
         return `🍽️ <strong>Evening — Aug 17:</strong><br><br>
-<strong>Optional 6:30 PM:</strong> Pickleball near West Loop (optional, ~60–90 min)<br>
 <strong>Dinner at 7:00 PM — Cabra</strong>, sponsored by 3Cloud 🎉 (confirmed reservation)<br>
 <strong>Fallback:</strong> Duck Duck Goat if Cabra is unavailable<br><br>
 🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates. Vegetarian options 🥗<br><br>
 <em>Also — don't forget to add your song to the team playlist ahead of the "One Song" icebreaker on Day 1! Check the Evening tab for the link.</em> 🎵`;
-      }
-
-      // Pickleball specifically
-      if (has("pickleball","pickle ball","court","sport","play")) {
-        return `🎾 <strong>Pickleball Plan:</strong><br><br>
-Targeting <strong>West Loop / Fulton Market</strong> courts near dinner — ~60–90 min before we head to eat.<br><br>
-<strong>How to reserve:</strong><br>
-• Search on <a href="https://www.google.com/maps/search/pickleball+courts+chicago+west+loop/" target="_blank">Google Maps: "pickleball courts West Loop Chicago" ↗</a><br>
-• Call the facility directly to reserve (2–3 hour advance booking is typical)<br>
-• OR ask <strong>Ester DeKeLaita</strong> (Fairmont/AON concierge) at <strong>312-920-5600</strong> — she can point you to the best available options<br><br>
-<strong>Schedule:</strong> 5:30–7:00 PM (optional) → Dinner at 7:00 PM (Cabra, sponsored by 3Cloud)<br>
-<em>Completely optional — no pressure if you have calls or need to decompress after a big Day 1.</em>`;
       }
 
       // Song icebreaker / playlist
@@ -1319,7 +1299,7 @@ Before we meet on Aug 17, pick <strong>one song that tells us something about wh
       if (has("dress","wear","attire","formal","casual","business casual","what should i wear")) {
         return `👔 <strong>Dress code:</strong> Business casual for working sessions.<br><br>
 We're in the Microsoft MTC space — smart casual is perfect. Think: no tie required, but look sharp.<br><br>
-For the <strong>evening event</strong> (pickleball + dinner), feel free to bring a change of clothes or dress down. Comfortable shoes recommended for pickleball. 🎾`;
+For the <strong>evening dinner</strong>, feel free to bring a change of clothes or dress down.`;
       }
 
       // Who is coming / team
