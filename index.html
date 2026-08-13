@@ -160,30 +160,6 @@
     .btn-save { background: var(--accent-gradient); color: #fff; }
     .btn-cancel { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border); }
     .btn-reset { background: transparent; color: var(--text-muted); font-size: 0.76rem; text-decoration: underline; padding: 5px 4px; }
-    .search {
-      width: 100%; padding: 11px 14px; border: 1px solid var(--border);
-      border-radius: 10px; background: var(--bg-card); margin-bottom: 12px;
-      color: var(--text-primary); transition: border-color 0.15s;
-    }
-    .search:focus { outline: none; border-color: var(--border-hover); }
-    .choice {
-      display: grid; gap: 10px; padding: 18px;
-      border: 1px solid var(--border); border-radius: 14px;
-      background: var(--bg-card); box-shadow: var(--shadow);
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .choice:hover { box-shadow: var(--shadow-hover); border-color: var(--border-hover); }
-    .choice .rank { color: var(--accent); font-weight: 800; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .vote-row { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
-    .vote-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
-      background: var(--bg-secondary); color: var(--text-secondary);
-      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
-    }
-    .vote-btn:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
-    .vote-btn.voted { background: var(--accent-gradient); border-color: transparent; color: #fff; }
-    .vote-count { font-size: 0.82rem; color: var(--text-muted); }
     .notice {
       border-left: 4px solid var(--warning); padding: 12px 14px;
       background: rgba(245,158,11,0.08); border-radius: 0 10px 10px 0;
@@ -472,6 +448,7 @@
       <button class="tab" data-view="travel">Travel</button>
       <button class="tab" data-view="logistics">Logistics</button>
       <button class="tab" data-view="evening">Evening</button>
+      <button class="tab" data-view="playlist">Playlist</button>
       <button class="tab" data-view="chicago">&#x1F306; Chicago</button>
     </nav>
 
@@ -497,7 +474,7 @@
           </li>
           <li>
             <span class="step-num">5</span>
-            <span>Grab a coffee and get settled &mdash; session kicks off at <strong>2:00 PM CT</strong> &middot; arrive by <strong>1:00 PM CT</strong></span>
+            <span>Grab a coffee and get settled &mdash; welcome and working agreements start at <strong>1:00 PM CT</strong> &middot; arrive by <strong>1:00 PM CT</strong></span>
           </li>
         </ul>
       </div>
@@ -505,33 +482,33 @@
         <article class="card">
           <div class="metric">1:00 PM</div>
           <div class="muted">Arrival time, Aug 17</div>
-          <p class="small">Arrive at AON Center by 1:00 PM CT. Session kicks off at 2:00 PM CT.</p>
+          <p class="small">Arrive at AON Center by 1:00 PM CT. The working agenda starts at 1:00 PM CT.</p>
         </article>
         <article class="card">
           <div class="metric">4:00 PM+</div>
           <div class="muted">Day 2 office departure, Aug 18</div>
-          <p class="small">Book flights departing after 7:00 PM from ORD or after 6:30 PM from MDW where possible.</p>
+          <p class="small">Book flights departing after 6:00 PM where possible so the closeout and departures stay low-stress.</p>
         </article>
         <article class="card">
           <div class="metric">2 days</div>
           <div class="muted">Planning + operating rhythm</div>
-          <p class="small">Outputs: H1 execution scorecard, H2 bets, owner map, risks, and follow-up cadence.</p>
+          <p class="small">Outputs: FY27 big rocks, ownership decisions, replicable plays, execution cadence, and a 30-day action plan.</p>
         </article>
       </div>
       <div class="section grid two">
         <article class="card soft">
           <h2>Meeting goals</h2>
-          <p>Align CAIP LT on the operating plan, accelerate H1 execution, define H2 build priorities, and clarify business management mechanisms.</p>
+          <p>Align FY27 execution priorities, clarify ownership and ways of working, strengthen STU and CSU integration, and leave with concrete commitments.</p>
           <div class="pillrow">
-            <span class="pill">Execution</span>
-            <span class="pill">Business management</span>
-            <span class="pill">H2 planning</span>
+            <span class="pill">Big rocks</span>
+            <span class="pill">Operating model</span>
+            <span class="pill">Execution rhythm</span>
           </div>
         </article>
         <article class="card soft">
           <h2>Core outputs</h2>
-          <p>Use the meeting to produce a one-page CAIP H2 narrative, scorecard commitments, risk/decision log, and stakeholder engagement plan.</p>
-          <div class="notice">Conference room is confirmed: <strong>EBC Conference Room, 2nd Floor MTC Center</strong>. Hotel, restaurant, and activity availability are still being finalized.</div>
+          <p>Use the meeting to lock big rocks, ownership handoffs, repeatable plays, quarterly opportunity focus, and the first 30-day follow-up plan.</p>
+          <div class="notice">Conference room, dinner plan, and shared agenda are set: <strong>EBC Conference Room, 2nd Floor MTC Center</strong> with the live schedule maintained in the shared Word document.</div>
         </article>
       </div>
 
@@ -568,67 +545,7 @@
     </section>
 
     <section id="agenda" class="section" hidden>
-      <input id="agendaSearch" class="search" type="search" placeholder="Search agenda by topic, owner, H1, H2...">
-      <div class="day-toggle">
-        <button class="tab active" data-day="17">Day 1 &mdash; We&rsquo;re Here! &#127961;</button>
-        <button class="tab" data-day="18">Day 2 &mdash; Let&rsquo;s Build H2 &#128640;</button>
-      </div>
       <div id="timeline" class="timeline"></div>
-
-      <div class="card" style="margin-top:16px;">
-        <h2>&#129309; Partner Resources</h2>
-        <p class="muted small" style="margin:2px 0 14px;"><strong>Onsite partner participants:</strong> 3Cloud and MAQ Software. Contacts and materials for the Day 2 partner spotlight block are collected below; additional partner participation remains subject to confirmation.</p>
-
-        <article style="margin-bottom:18px;">
-          <h3 style="margin-bottom:8px;">3Cloud</h3>
-          <div style="overflow-x:auto;">
-            <table class="contacts-table">
-              <thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone Number</th></tr></thead>
-              <tbody>
-                <tr><td>James Truitt</td><td>Senior Director - Alliances</td><td><a href="mailto:James.truitt@3cloudsolutions.com">James.truitt@3cloudsolutions.com</a></td><td>206-351-4435</td></tr>
-                <tr><td>Jim Dietrich</td><td>Founder &amp; President</td><td><a href="mailto:Jdietrich@3cloudsolutions.com">Jdietrich@3cloudsolutions.com</a></td><td>630-440-8319</td></tr>
-                <tr><td>Scott Wilson</td><td>EVP, Chief Sales Officer</td><td><a href="mailto:Scott.wilson@3cloudsolutions.com">Scott.wilson@3cloudsolutions.com</a></td><td>435-632-3625</td></tr>
-                <tr><td>Arjan Ligtenberg</td><td>Vice President - Sales (RCG, MFM, OGE)</td><td><a href="mailto:Arjan.ligtenberg@3cloudsolutions.com">Arjan.ligtenberg@3cloudsolutions.com</a></td><td>650-269-7125</td></tr>
-                <tr><td>Jason Huizenga</td><td>Enterprise Sales Director</td><td><a href="mailto:Jason.huizenga@3cloudsolutions.com">Jason.huizenga@3cloudsolutions.com</a></td><td>847-456-4920</td></tr>
-                <tr><td>Warren Peters III</td><td>Enterprise Sales Director</td><td><a href="mailto:Warren.petersiii@3cloudsolutions.com">Warren.petersiii@3cloudsolutions.com</a></td><td>520-971-7218</td></tr>
-                <tr><td>Ibrahim Kareem</td><td>Specialist - Alliances</td><td><a href="mailto:Ibrahim.kareem@3cloudsolutions.com">Ibrahim.kareem@3cloudsolutions.com</a></td><td>407-761-7339</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="margin:10px 0 4px;font-weight:700;">Topic discussion &amp; key documents:</p>
-          <ul class="links-list">
-            <li><span class="muted small">Discussion topic &mdash; TBD, pending confirmation</span></li>
-            <li><span class="muted small">Key documents &mdash; link to be added once shared by 3Cloud</span></li>
-          </ul>
-        </article>
-
-        <article style="margin-bottom:18px;">
-          <h3 style="margin-bottom:8px;">MAQ Software</h3>
-          <div style="overflow-x:auto;">
-            <table class="contacts-table">
-              <thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone Number</th></tr></thead>
-              <tbody>
-                <tr><td>Keshav Polepalle</td><td>Director</td><td><a href="mailto:keshavp@maqsoftware.com">keshavp@maqsoftware.com</a></td><td>+1 425-591-2648</td></tr>
-                <tr><td>Arpita Agarwal</td><td>Principal</td><td><a href="mailto:arpita@maqsoftware.com">arpita@maqsoftware.com</a></td><td>&mdash;</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="margin:10px 0 4px;font-weight:700;">Topic discussion &amp; key documents:</p>
-          <ul class="links-list">
-            <li><span class="muted small">MAQ Software Overview &mdash; <a href="https://microsoft-my.sharepoint.com/:b:/r/personal/gwiderski_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fgwiderski%5Fmicrosoft%5Fcom%2FDocuments%2FAttachments%2FMAQ%20Software%20Overview%20Retail%20OU%2Epdf&amp;parent=%2Fpersonal%2Fgwiderski%5Fmicrosoft%5Fcom%2FDocuments%2FAttachments&amp;share=cQrfUXvatAr%2DQYmF%2DF7efXIBEgUC1VGy6GqDqoUZzat7RHTtEQ" target="_blank" rel="noopener noreferrer">open document</a></span></li>
-          </ul>
-        </article>
-
-        <article style="margin-bottom:18px;">
-          <h3 style="margin-bottom:8px;">Moderne</h3>
-          <p class="muted small">Contact info, discussion topic, and documents &mdash; TBD.</p>
-        </article>
-
-        <article>
-          <h3 style="margin-bottom:8px;">CloudMoyo</h3>
-          <p class="muted small">Contact info, discussion topic, and documents &mdash; TBD.</p>
-        </article>
-      </div>
     </section>
 
     <section id="travel" class="section" hidden>
@@ -742,8 +659,8 @@
         <article class="card" style="grid-column: 1 / -1;">
           <h2>Hotel block</h2>
           <p style="margin:0 0 8px;">&#x1F3E8; <strong>Stay at the <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago Millennium Park &#x2197;</a></strong> &mdash; <em>conveniently connected to AON Center via an indoor corridor, so you never have to go outside.</em></p>
-          <p><strong>Target:</strong> <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago &#x2197;</a> Millennium Park if an in-policy group block is available. Self-book via <a href="https://aka.ms/bookaroom" target="_blank" rel="noopener noreferrer">aka.ms/bookaroom &#x2197;</a>.</p>
-          <p><strong>Ask:</strong> Aug 16 optional early arrival, Aug 17 primary overnight, Aug 18 late checkout options, flexible attrition, direct billing if available.</p>
+          <p><strong>Book here:</strong> <a href="https://www.fairmont.com/chicago/" target="_blank" rel="noopener noreferrer">Fairmont Chicago &#x2197;</a> Millennium Park via <a href="https://aka.ms/cytric" target="_blank" rel="noopener noreferrer">aka.ms/cytric &#x2197;</a>.</p>
+          <p><strong>Recommended stay:</strong> Aug 17 primary overnight, with Aug 16 early arrival or Aug 18 late departure added as needed for your travel plan.</p>
           <p style="margin:10px 0 14px;color:var(--text-muted);font-size:0.87rem;font-style:italic;">No need to battle Chicago August heat or rain &mdash; stay connected indoors the whole way.</p>
           <h3 style="margin-bottom:12px;font-size:0.94rem;">&#x1F6B6; Indoor Walking Route: Fairmont &rarr; AON Center</h3>
           <ul class="step-list">
@@ -771,7 +688,7 @@
         </article>
         <article class="card">
           <h2>Food and day-of support</h2>
-          <p>Plan light lunch on arrival, afternoon snacks, breakfast on Aug 18, and working lunch on Aug 18. Confirm visitor badges, Wi-Fi, AV support, and room access windows.</p>
+          <p>Plan light lunch on arrival, afternoon snacks, breakfast on Aug 18, and the MAQ Software lunch block on Aug 18. Confirm visitor badges, Wi-Fi, AV support, and room access windows.</p>
         </article>
       </div>
     </section>
@@ -779,55 +696,16 @@
     <section id="evening" class="section" hidden>
       <article class="card" style="margin-bottom:14px;border-color:var(--border-hover);">
         <h2>&#x1F37D;&#xFE0F; Team dinner &mdash; confirmed</h2>
-        <p><strong>Cabra, 7:00 PM on Aug 17</strong> &mdash; generously sponsored by <strong>3Cloud</strong>. If Cabra is unavailable, fallback is <strong>Duck Duck Goat</strong>.</p>
+        <p><strong>Optional pickleball / team connection at 6:30 PM</strong>, followed by <strong><a href="https://www.cabrachicago.com/" target="_blank" rel="noopener noreferrer">Cabra &#x2197;</a> at 7:00 PM on Aug 17</strong> &mdash; generously sponsored by <strong>3Cloud</strong>.</p>
+        <p>200 N Green St, Chicago, IL 60607 &middot; Hoxton Hotel rooftop &middot; Latin dinner with vegetarian options.</p>
       </article>
-      <article class="card" style="margin-bottom:14px;">
-        <h2>&#x1F3B5; Team playlist &mdash; "One Song" icebreaker</h2>
-        <p>We&rsquo;ll use this collaborative playlist to compile everyone&rsquo;s songs as we go during the offsite.</p>
+    </section>
+    <section id="playlist" class="section" hidden>
+      <article class="card" style="margin-bottom:14px;border-color:var(--border-hover);">
+        <h2>&#x1F3B5; Team playlist</h2>
+        <p>The collaborative playlist will be updated at the start of the offsite as we kick off the &ldquo;One Song&rdquo; icebreaker together.</p>
         <p><a href="https://open.spotify.com/playlist/29TZ0X1sV7Lm0o7qPiked5?si=9ecd664547e14966&pt=f02ad3e5fbc826db25e1212e9d4063f3" id="playlist-link" target="_blank" rel="noopener noreferrer">Open the team playlist &#x2197;</a></p>
       </article>
-      <div class="grid">
-        <article class="choice">
-          <div class="rank">&#x1F31F; Confirmed &mdash; Sponsored by 3Cloud</div>
-          <h2><a href="https://www.cabrachicago.com/" target="_blank" rel="noopener noreferrer">Cabra &#x2197;</a></h2>
-          <p>Rooftop Latin restaurant at the Hoxton Hotel, West Loop. Stunning views, shared plates, cocktails &mdash; perfect for groups. &#x1F966; Vegetarian options. Reservation at 7:00 PM, Aug 17.</p>
-          <div class="pillrow"><span class="pill">Rooftop</span><span class="pill">West Loop</span><span class="pill">Latin</span><span class="pill">Sponsored by 3Cloud</span></div>
-          <div class="vote-row">
-            <button class="vote-btn" data-restaurant="cabra">&#x1F44D; Vote</button>
-            <span class="vote-count" id="count-cabra">0 votes</span>
-          </div>
-        </article>
-        <article class="choice">
-          <div class="rank">Modern Chinese &mdash; West Loop</div>
-          <h2><a href="https://www.duckduckgoatchicago.com/" target="_blank" rel="noopener noreferrer">Duck Duck Goat &#x2197;</a></h2>
-          <p>Stephanie Izard&rsquo;s modern Chinese, West Loop. Bold flavors, great for groups. &#x1F966; Vegetarian options</p>
-          <div class="pillrow"><span class="pill">West Loop</span><span class="pill">Group dinner</span><span class="pill">Bold flavors</span></div>
-          <div class="vote-row">
-            <button class="vote-btn" data-restaurant="ddg">&#x1F44D; Vote</button>
-            <span class="vote-count" id="count-ddg">0 votes</span>
-          </div>
-        </article>
-        <article class="choice">
-          <div class="rank">Japanese Street Food &mdash; West Loop</div>
-          <h2><a href="https://gaijinchicago.com/" target="_blank" rel="noopener noreferrer">Gaijin &#x2197;</a></h2>
-          <p>Japanese Okonomiyaki &amp; street food, West Loop. Unique, fun, shareable. &#x1F966; Vegetarian options</p>
-          <div class="pillrow"><span class="pill">Okonomiyaki</span><span class="pill">West Loop</span><span class="pill">Interactive</span></div>
-          <div class="vote-row">
-            <button class="vote-btn" data-restaurant="gaijin">&#x1F44D; Vote</button>
-            <span class="vote-count" id="count-gaijin">0 votes</span>
-          </div>
-        </article>
-        <article class="choice">
-          <div class="rank">Upscale Japanese &mdash; Fulton Market</div>
-          <h2><a href="https://www.momotarochicago.com/" target="_blank" rel="noopener noreferrer">Momotaro &#x2197;</a></h2>
-          <p>Upscale Japanese, Fulton Market. Beautiful space, excellent for team dinners. &#x1F966; Vegetarian options</p>
-          <div class="pillrow"><span class="pill">Fulton Market</span><span class="pill">Upscale</span><span class="pill">Team dinner</span></div>
-          <div class="vote-row">
-            <button class="vote-btn" data-restaurant="momotaro">&#x1F44D; Vote</button>
-            <span class="vote-count" id="count-momotaro">0 votes</span>
-          </div>
-        </article>
-      </div>
     </section>
     <section id="chicago" class="section" hidden>
       <div class="chicago-hero">
@@ -894,7 +772,7 @@
         </article>
         <article class="card">
           <h3 style="margin-bottom:4px;"><a href="https://www.girlandthegoat.com/" target="_blank" rel="noopener noreferrer">Girl &amp; the Goat &#x2197;</a></h3>
-          <p class="small muted" style="margin:0;">Stephanie Izard again (yes, also the Duck Duck Goat chef). Consistently incredible.</p>
+          <p class="small muted" style="margin:0;">A Stephanie Izard favorite. Consistently incredible.</p>
         </article>
         <article class="card">
           <h3 style="margin-bottom:4px;"><a href="https://www.rpmrestaurants.com/rpm-steak" target="_blank" rel="noopener noreferrer">RPM Steak &#x2197;</a></h3>
@@ -962,152 +840,33 @@
     <button data-view="travel">Travel</button>
     <button data-view="logistics">Rooms</button>
     <button data-view="evening">Evening</button>
+    <button data-view="playlist">Music</button>
     <button data-view="chicago">&#x1F306; Chi</button>
   </nav>
   <script>
-    const agendaDefaults = {
-      "17": [
-        { id:"d1-0",  time:"12:00", title:"Arrival, badges, lunch pickup",            tag:"Logistics",           body:"Attendees arrive at AON Center, collect badges, grab a working lunch, and settle in. Arrive by 1:00 PM CT." },
-        { id:"d1-1",  time:"1:00",  title:"Welcome & \"One Song\" icebreaker",         tag:"Greg / Travis",       body:"We will use the collaborative Spotify playlist to compile everyone’s songs as we go during the offsite, then share the stories and context behind the selections together." },
-        { id:"d1-2",  time:"2:00",  title:"CAIP state of the business",               tag:"Business management",  body:"Review current scorecard, H1 commitments, pipeline, blockers, field signals, and customer impact. Official session start." },
-        { id:"d1-3",  time:"2:50",  title:"H1 execution deep dive",                   tag:"Execution",           body:"Identify what is on track, what needs intervention, and where LT decisions are required." },
-        { id:"d1-4",  time:"3:40",  title:"Break",                                    tag:"Logistics",           body:"Refresh, calls, and room reset." },
-        { id:"d1-5",  time:"3:55",  title:"CAIP initiatives: workstream reviews",     tag:"Initiatives",         body:"Each initiative owner covers goal, H1 progress, H2 ask, dependencies, and next decision." },
-        { id:"d1-7",  time:"5:55",  title:"Day 1 synthesis",                          tag:"Decisions",           body:"Capture decisions, unresolved issues, and prep needed for Day 2." },
-        { id:"d1-8",  time:"6:15",  title:"Transition to evening",                    tag:"Social",              body:"Rideshare or walk to West Loop/Fulton Market for the dinner reception." },
-        { id:"d1-10", time:"7:00",  title:"Team dinner — sponsored by 3Cloud",         tag:"Engagement",          body:"Reservation at Cabra (rooftop, West Loop) for 7:00 PM, generously sponsored by 3Cloud. Fallback: Duck Duck Goat if Cabra is unavailable." }
-      ],
-      "18": [
-        { id:"d2-0",  time:"8:00",  title:"Breakfast and overnight synthesis",        tag:"Logistics",           body:"Review Day 1 outputs, close open prep items, and align on Day 2 decisions." },
-        { id:"d2-1",  time:"8:30",  title:"H2 strategic bets",                        tag:"Planning",            body:"Define the few H2 bets that matter most and the investment tradeoffs needed to execute." },
-        { id:"d2-5",  time:"9:30", title:"3Cloud partner spotlight (45 min)",        tag:"3Cloud",             body:"Focused 45-minute 3Cloud discussion on partnership priorities, H2 execution support, dependencies, and next steps." },
-        { id:"d2-3",  time:"10:15", title:"Break",                                   tag:"Logistics",           body:"Take a 15-minute break; breakout rooms remain available for urgent customer or internal calls." },
-        { id:"d2-2",  time:"10:30", title:"CSU alignment: joint execution model",     tag:"CSU / CAIP LT",       body:"Align CAIP and CSU leadership on H1 execution learnings, H2 priorities, shared dependencies, operating cadence, decision rights, escalation paths, and the collaboration model needed to execute together." },
-        { id:"d2-7",  time:"11:30", title:"Initiative owner commitments",             tag:"Accountability",      body:"Each owner locks H2 outcomes, milestones, measures, and asks." },
-        { id:"d2-6",  time:"12:15", title:"Lunch — MAQ Software",                      tag:"Logistics",           body:"45-minute working lunch with the two onsite MAQ Software attendees: Keshav Polepalle and Arpita Agarwal." },
-        { id:"d2-8",  time:"1:00",  title:"Communications and stakeholder plan",      tag:"Change management",   body:"Draft the message to the broader team: priorities, why now, how success will be measured." },
-        { id:"d2-9",  time:"1:40",  title:"Final decision log and next 30 days",      tag:"Decisions",           body:"Review decisions, action owners, due dates, and operating cadence." },
-        { id:"d2-10", time:"2:15",  title:"Closeout",                                 tag:"Greg / CAIP LT",      body:"Confirm outputs, travel timing, and follow-up artifact owners." },
-        { id:"d2-11", time:"4:00",  title:"Depart office",                            tag:"Travel",              body:"Attendees depart AON Center for ORD, MDW, hotel, or local commitments." }
-      ]
-    };
-
-    let currentDay = "17";
-    const restaurants = ["cabra","ddg","gaijin","momotaro"];
-
-    function getAgendaItem(id) {
-      try { const s = localStorage.getItem("caip_agenda_" + id); return s ? JSON.parse(s) : null; } catch(e) { return null; }
-    }
-    function saveAgendaItem(id, title, body) {
-      localStorage.setItem("caip_agenda_" + id, JSON.stringify({ title, body }));
-    }
-    function resetAgendaItem(id) { localStorage.removeItem("caip_agenda_" + id); }
-
-    function getVotes(k) { return parseInt(localStorage.getItem("caip_vote_count_" + k) || "0", 10); }
-    function hasVoted(k) { return localStorage.getItem("caip_vote_user_" + k) === "1"; }
-    function toggleVote(k) {
-      if (hasVoted(k)) {
-        localStorage.removeItem("caip_vote_user_" + k);
-        localStorage.setItem("caip_vote_count_" + k, Math.max(0, getVotes(k) - 1));
-      } else {
-        localStorage.setItem("caip_vote_user_" + k, "1");
-        localStorage.setItem("caip_vote_count_" + k, getVotes(k) + 1);
-      }
-    }
-    function updateVoteUI() {
-      restaurants.forEach(k => {
-        const btn = document.querySelector(`.vote-btn[data-restaurant="${k}"]`);
-        const cnt = document.getElementById("count-" + k);
-        if (!btn || !cnt) return;
-        const voted = hasVoted(k);
-        btn.textContent = voted ? "\u2713 Voted" : "\uD83D\uDC4D Vote";
-        btn.classList.toggle("voted", voted);
-        const n = getVotes(k);
-        cnt.textContent = n === 1 ? "1 vote" : n + " votes";
-      });
-    }
-
-    function esc(s) {
-      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    }
+    const AGENDA_DOC_URL = "https://microsoft-my.sharepoint.com/:w:/p/trcoleman/cQqdzZ9r-zIzRLCpFd_4UzEEEgUCUF1jchBhtIhEm2Kfq1RMmg";
 
     function renderAgenda() {
-      const query = document.getElementById("agendaSearch").value.trim().toLowerCase();
-      const items = agendaDefaults[currentDay];
-      const filtered = items.filter(item => {
-        if (!query) return true;
-        const sv = getAgendaItem(item.id);
-        return ((sv ? sv.title : item.title) + " " + (sv ? sv.body : item.body) + " " + item.tag).toLowerCase().includes(query);
-      });
-      document.getElementById("timeline").innerHTML = filtered.map(item => {
-        const sv = getAgendaItem(item.id);
-        const t = sv ? sv.title : item.title;
-        const b = sv ? sv.body  : item.body;
-        return `<article class="event" id="event-${item.id}">
-          <div class="time">${esc(item.time)}</div>
-          <div class="event-content">
-            <h3>${esc(t)}</h3>
-            <p class="muted small">${esc(b)}</p>
-            <span class="tag">${esc(item.tag)}</span>
-          </div>
-          <button class="edit-btn" data-edit="${item.id}" title="Edit">\u270F\uFE0F</button>
-        </article>`;
-      }).join("");
-    }
-
-    function openEditForm(id) {
-      const el = document.getElementById("event-" + id);
-      if (!el) return;
-      const def = agendaDefaults[currentDay].find(i => i.id === id);
-      if (!def) return;
-      const sv = getAgendaItem(id);
-      const t = sv ? sv.title : def.title;
-      const b = sv ? sv.body  : def.body;
-      el.querySelector(".event-content").innerHTML =
-        `<div class="edit-form">
-          <input class="edit-title" value="${esc(t)}" placeholder="Session title">
-          <textarea class="edit-body" rows="3" placeholder="Description">${esc(b)}</textarea>
-          <div class="edit-actions">
-            <button class="btn-save" data-save="${id}">\u2705 Save</button>
-            <button class="btn-cancel" data-cancel="${id}">\u274C Cancel</button>
-            <button class="btn-reset" data-reset="${id}">Reset to default</button>
-          </div>
-        </div><span class="tag">${esc(def.tag)}</span>`;
-      const eb = el.querySelector(".edit-btn");
-      if (eb) eb.style.display = "none";
-    }
-
-    function closeEditForm(id, save) {
-      const el = document.getElementById("event-" + id);
-      if (save && el) {
-        const nt = el.querySelector(".edit-title").value.trim();
-        const nb = el.querySelector(".edit-body").value.trim();
-        if (nt) saveAgendaItem(id, nt, nb);
-      }
-      renderAgenda();
+      document.getElementById("timeline").innerHTML = `<article class="card">
+        <h2>\uD83D\uDCCB Live agenda document</h2>
+        <p>The offsite agenda is now maintained in one shared Word document. Use this link for the latest working version and all future updates.</p>
+        <p><a href="${AGENDA_DOC_URL}" target="_blank" rel="noopener noreferrer">Open the shared agenda \u2197</a></p>
+        <p class="muted small">This shared document replaces the embedded Day 1 / Day 2 agenda in the app and is the single source of truth moving forward.</p>
+      </article>`;
     }
 
     function setView(view) {
       document.querySelectorAll(".section").forEach(s => s.hidden = s.id !== view);
       document.querySelectorAll("[data-view]").forEach(b => b.classList.toggle("active", b.dataset.view === view));
       if (view === "agenda")  renderAgenda();
-      if (view === "evening") updateVoteUI();
     }
 
     document.addEventListener("click", e => {
-      const vb = e.target.closest("[data-view]");      if (vb) { setView(vb.dataset.view); return; }
-      const db = e.target.closest("[data-day]");       if (db) { currentDay = db.dataset.day; document.querySelectorAll("[data-day]").forEach(b => b.classList.toggle("active", b.dataset.day === currentDay)); renderAgenda(); return; }
-      const eb = e.target.closest("[data-edit]");      if (eb) { openEditForm(eb.dataset.edit); return; }
-      const sb = e.target.closest("[data-save]");      if (sb) { closeEditForm(sb.dataset.save, true); return; }
-      const cb = e.target.closest("[data-cancel]");    if (cb) { closeEditForm(cb.dataset.cancel, false); return; }
-      const rb = e.target.closest("[data-reset]");     if (rb) { resetAgendaItem(rb.dataset.reset); renderAgenda(); return; }
-      const vo = e.target.closest("[data-restaurant]");if (vo) { toggleVote(vo.dataset.restaurant); updateVoteUI(); return; }
+      const vb = e.target.closest("[data-view]");
+      if (vb) { setView(vb.dataset.view); }
     });
 
-    document.addEventListener("input", e => { if (e.target.id === "agendaSearch") renderAgenda(); });
-
     renderAgenda();
-    updateVoteUI();
   </script>
   <!-- ── AI ASSISTANT WIDGET ──────────────────────────── -->
   <button class="ai-fab" id="aiFab" aria-label="Ask the Offsite AI Assistant">
@@ -1136,8 +895,8 @@
       <button class="ai-chip" data-q="Where is the office?">📍 Where's the office?</button>
       <button class="ai-chip" data-q="How do I get from O'Hare to AON Center?">✈️ ORD → AON?</button>
       <button class="ai-chip" data-q="What hotel should I stay at?">🏨 Hotel?</button>
-      <button class="ai-chip" data-q="What is the agenda for Day 1?">📋 Day 1 agenda</button>
-      <button class="ai-chip" data-q="Where are we going for dinner?">🍽️ Dinner options</button>
+      <button class="ai-chip" data-q="Where is the live agenda document?">📋 Live agenda doc</button>
+      <button class="ai-chip" data-q="What are the Cabra dinner details?">🍽️ Cabra details</button>
       <button class="ai-chip" data-q="Who do I contact for facilities help?">📞 Contacts</button>
       <button class="ai-chip" data-q="What is there to do in Chicago?">🏙️ Things to do</button>
     </div>
@@ -1155,7 +914,7 @@
     const K = {
       dates: "August 17–18, 2026",
       arriveBy: "1:00 PM CT on Monday, August 17",
-      sessionStart: "2:00 PM CT",
+      sessionStart: "1:00 PM CT",
       departAfter: "after 4:00 PM CT on Tuesday, August 18",
       address: "200 E Randolph St, Chicago, IL 60601",
       building: "AON Center",
@@ -1168,32 +927,8 @@
       booking: "https://aka.ms/cytric",
       appUrl: "https://gregwid-ai.github.io/caip-chicago-offsite/",
       dashUrl: "https://gregwid-ai.github.io/caip-chicago-offsite/dashboard.html",
+      agendaUrl: AGENDA_DOC_URL,
     };
-
-    const DAY1 = [
-      { t:"12:00 PM", s:"Arrival, badges & working lunch — arrive by 1:00 PM CT" },
-      { t:"1:00 PM",  s:"Welcome & \"One Song\" icebreaker — build the collaborative playlist together" },
-      { t:"2:00 PM",  s:"CAIP state of the business — scorecard, H1 commitments, pipeline" },
-      { t:"2:50 PM",  s:"H1 execution deep dive — what's on track, what needs intervention" },
-      { t:"3:40 PM",  s:"Break" },
-      { t:"3:55 PM",  s:"CAIP initiatives workstream reviews — each owner covers progress & H2 ask" },
-      { t:"5:55 PM",  s:"Day 1 synthesis & decisions — capture outputs, prep for Day 2" },
-      { t:"6:15 PM",  s:"Transition to evening" },
-      { t:"7:00 PM",  s:"Team dinner (sponsored by 3Cloud) — Cabra (rooftop); fallback Duck Duck Goat" },
-    ];
-    const DAY2 = [
-      { t:"8:00 AM",  s:"Breakfast & overnight synthesis — close open prep items" },
-      { t:"8:30 AM",  s:"H2 strategic bets — define the bets that matter most" },
-      { t:"9:30 AM",  s:"3Cloud partner spotlight (45 min) — partnership priorities, H2 support & next steps" },
-      { t:"10:15 AM", s:"15-minute break — breakout rooms available for urgent calls" },
-      { t:"10:30 AM", s:"CSU alignment: joint execution model — H2 priorities, dependencies, cadence & decision rights" },
-      { t:"11:30 AM", s:"Initiative owner commitments — lock H2 outcomes, milestones, asks" },
-      { t:"12:15 PM", s:"Lunch (45 min) — MAQ Software only; Keshav Polepalle and Arpita Agarwal onsite" },
-      { t:"1:00 PM",  s:"Communications & stakeholder plan — message to the broader team" },
-      { t:"1:40 PM",  s:"Final decision log & next 30 days" },
-      { t:"2:15 PM",  s:"Closeout — confirm outputs, travel timing, artifact owners" },
-      { t:"4:00 PM",  s:"Depart office — book flights after 6:00 PM from ORD or 5:30 PM from MDW" },
-    ];
 
     /* ── RESPONSE ENGINE ───────────────────────────────── */
     function respond(q) {
@@ -1202,24 +937,24 @@
 
       // Greetings
       if (/^(hi|hello|hey|howdy|good morning|good afternoon|yo|sup)\b/.test(lq.trim())) {
-        return `Hey there! 👋 I'm the CAIP Offsite Assistant — I know everything about the <strong>Chicago Aug 17–18 offsite</strong>. Ask me about the agenda, hotel, travel, dinner, or anything logistics-related. What's on your mind?`;
+        return `Hey there! 👋 I'm the CAIP Offsite Assistant — I know everything about the <strong>Chicago Aug 17–18 offsite</strong>. I can help with hotel, travel, dinner, contacts, and Chicago details, and I&rsquo;ll send you to the shared agenda document for the latest schedule. What's on your mind?`;
       }
 
       // What is this
       if (has("what is this","what's this","about","purpose","overview")) {
         return `This is the <strong>RCG CAIP LT Offsite – Chicago</strong> planning app! 🏙️<br><br>
 <strong>Aug 17–18, 2026</strong> at the <strong>AON Center Microsoft MTC</strong>, Chicago.<br>
-Arrive by <strong>1:00 PM CT on Aug 17</strong>, sessions kick off at 2:00 PM. Depart after 4:00 PM on Aug 18.<br><br>
-Focus: H1 execution, H2 strategic bets, CSU alignment, joint operating model, and team alignment. And of course — great Chicago food. 🍽️`;
+        Arrive by <strong>1:00 PM CT on Aug 17</strong>; the working day starts at 1:00 PM. Depart after 4:00 PM on Aug 18.<br><br>
+        The agenda is now maintained in a shared Word document: <a href="${K.agendaUrl}" target="_blank" rel="noopener noreferrer">open the live agenda ↗</a>.`;
       }
 
       // Dates & times
       if (has("when","what date","what day","what time","duration","how long","start time","end time","arrive","arrival","depart","departure")) {
         return `📅 <strong>Key times:</strong><br>
 • <strong>Arrive by:</strong> 1:00 PM CT, Monday Aug 17<br>
-• <strong>Sessions start:</strong> 2:00 PM CT, Aug 17<br>
+• <strong>Sessions start:</strong> 1:00 PM CT, Aug 17<br>
 • <strong>Day 2 closes:</strong> ~4:00 PM CT, Aug 18<br>
-• <strong>Depart flights:</strong> ORD after 6:00 PM · MDW after 5:30 PM<br>
+• <strong>Depart flights:</strong> after 6:00 PM where possible<br>
 • <strong>Target: land by 11:00 AM on Aug 17</strong> to comfortably make the 1:00 PM arrival`;
       }
 
@@ -1239,7 +974,7 @@ Focus: H1 execution, H2 strategic bets, CSU alignment, joint operating model, an
 2️⃣ Security on 1st floor — show government ID for your Microsoft badge<br>
 3️⃣ Look for the <strong>"Microsoft MTC 2nd Floor" sign</strong> on the left (1st bank of elevators)<br>
 4️⃣ Ride up to <strong>2nd Floor MTC Center — EBC Conference Room</strong><br>
-5️⃣ Grab coffee ☕ — session starts 2:00 PM CT`;
+5️⃣ Grab coffee ☕ — working session starts 1:00 PM CT`;
       }
 
       // Hotel / accommodation / stay
@@ -1252,7 +987,7 @@ The best part? It's <strong>directly connected to AON Center</strong> via a clim
 2️⃣ Follow signs to AON Center building connector<br>
 3️⃣ Walk through indoor corridor<br>
 4️⃣ Elevator up → 2nd Floor MTC<br><br>
-<em>Fairmont Chicago Millennium Park • Group rate available</em>`;
+<em>Fairmont Chicago Millennium Park • directly connected to AON Center</em>`;
       }
 
       // Travel / flights / transit
@@ -1265,30 +1000,26 @@ The best part? It's <strong>directly connected to AON Center</strong> via a clim
 • 🚇 CTA Orange Line → Adams/Wabash · ~35–45 min · $5<br>
 • 🚗 Rideshare → 200 E Randolph · ~35 min · $25–40<br><br>
 <strong>Target:</strong> Land by <strong>11:00 AM on Aug 17</strong> to arrive by 1:00 PM CT.<br>
-<strong>Departing Aug 18:</strong> Book flights after <strong>6:00 PM from ORD</strong> or <strong>5:30 PM from MDW</strong>.`;
+<strong>Departing Aug 18:</strong> Book flights after <strong>6:00 PM</strong> where possible.`;
       }
 
       // Agenda / schedule / sessions
       if (has("agenda","schedule","session","program","what's on","what are we doing","day 1","day 2","h1","h2","plan for","itinerary")) {
-        const wantD2 = has("day 2","august 18","aug 18","tuesday","second day","h2");
-        const day = wantD2 ? DAY2 : DAY1;
-        const label = wantD2 ? "Day 2 — Tue Aug 18 🚀" : "Day 1 — Mon Aug 17 🏙️";
-        return `📋 <strong>${label}</strong><br><br>${day.map(e=>`<strong>${e.t}</strong> — ${e.s}`).join("<br>")}${wantD2 ? "" : "<br><br><em>Tap 'Day 2 agenda' to see Tuesday's schedule.</em>"}`;
+        return `📋 <strong>Live agenda document:</strong><br><br>The offsite agenda is maintained in one shared Word document moving forward.<br><a href="${K.agendaUrl}" target="_blank" rel="noopener noreferrer">Open the shared agenda ↗</a><br><br><em>This link is now the single source of truth for schedule updates.</em>`;
       }
 
-      // Dinner / evening / restaurant
-      if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","duck duck goat","gaijin","momotaro","activity","social")) {
+      // Dinner / evening
+      if (has("dinner","restaurant","eat","food","evening","night out","where are we going","cabra","activity","social")) {
         return `🍽️ <strong>Evening — Aug 17:</strong><br><br>
-<strong>Dinner at 7:00 PM — Cabra</strong>, sponsored by 3Cloud 🎉 (confirmed reservation)<br>
-<strong>Fallback:</strong> Duck Duck Goat if Cabra is unavailable<br><br>
-🌟 <strong>Cabra</strong> — Rooftop Latin at Hoxton Hotel, West Loop. Stunning views, group plates. Vegetarian options 🥗<br><br>
-<em>We&rsquo;ll use the collaborative Spotify playlist to compile everyone&rsquo;s songs as we go during the offsite.</em> 🎵`;
+<strong>Optional pickleball / team connection at 6:30 PM</strong><br>
+<strong>Dinner at 7:00 PM — Cabra</strong>, sponsored by 3Cloud 🎉 (confirmed reservation)<br><br>
+🌟 <strong>Cabra</strong> — Rooftop Latin at the Hoxton Hotel, West Loop. 200 N Green St, Chicago, IL 60607. Vegetarian options 🥗`;
       }
 
       // Song icebreaker / playlist
       if (has("song","playlist","spotify","icebreaker","lyrics")) {
         return `🎵 <strong>"One Song" Icebreaker:</strong><br><br>
-We&rsquo;ll use our <strong>collaborative Spotify playlist</strong> to compile everyone&rsquo;s songs as we go during the offsite.<br><br>
+The collaborative playlist will be <strong>updated at the start of the offsite</strong> as everyone adds their song during the icebreaker.<br><br>
 <a href="https://open.spotify.com/playlist/29TZ0X1sV7Lm0o7qPiked5?si=9ecd664547e14966&pt=f02ad3e5fbc826db25e1212e9d4063f3" target="_blank" rel="noopener noreferrer">Open the team playlist ↗</a>`;
       }
 
@@ -1359,14 +1090,13 @@ Rich April · David Kirgis · Dheepa Iyer · Travis Coleman · Mark Quinalty · 
       // Outputs / goals / what will we accomplish
       if (has("output","goal","deliverable","accomplish","what will we","what are we trying","objective","result","outcome")) {
         return `🎯 <strong>Offsite goals & outputs:</strong><br><br>
-<strong>Focus:</strong> H1 execution + H2 build priorities<br><br>
+<strong>Focus:</strong> FY27 big rocks, ownership clarity, partner-enabled execution, and operating cadence<br><br>
 <strong>Key outputs we're targeting:</strong><br>
-• CAIP H2 narrative (one-pager)<br>
-• Scorecard commitments & metrics<br>
-• Risk & decision log with owners<br>
-• Operating model & governance clarity<br>
-• Stakeholder engagement plan<br>
-• Next 30-day action plan<br><br>
+• Agreement on the few FY27 big rocks to prioritize<br>
+• Clear ownership, handoffs, and support expectations across the LT<br>
+• Repeatable customer and partner plays to scale<br>
+• Standard metrics, decision forums, and quarterly opportunity focus<br>
+• Named owners, milestones, and a 30-day action plan<br><br>
 <em>This is a <strong>working session</strong> — come ready to make decisions and own outcomes. 🚀</em>`;
       }
 
@@ -1456,7 +1186,7 @@ Rich April · David Kirgis · Dheepa Iyer · Travis Coleman · Mark Quinalty · 
       fab.querySelector(".ai-badge").textContent = hidden ? "✕" : "AI";
       if (hidden && !opened) {
         opened = true;
-        addMsg("bot", `Hey! 👋 I'm the <strong>CAIP Offsite Assistant</strong> — your go-to for everything about the <strong>Chicago Aug 17–18 offsite</strong>.<br><br>I can answer questions about the agenda, hotel, travel, dinner, contacts, and Chicago. For deeper work context I'll connect you straight to <strong>Microsoft 365 Copilot</strong>.<br><br>What would you like to know? 🏙️`);
+        addMsg("bot", `Hey! 👋 I'm the <strong>CAIP Offsite Assistant</strong> — your go-to for everything about the <strong>Chicago Aug 17–18 offsite</strong>.<br><br>I can help with hotel, travel, dinner, contacts, and Chicago details. The agenda now lives in a shared Word document, and I&rsquo;ll point you there for the latest schedule.<br><br>What would you like to know? 🏙️`);
         scrollBottom();
       }
     });

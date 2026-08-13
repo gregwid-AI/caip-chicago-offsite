@@ -152,7 +152,7 @@
 <!-- Summary Stats -->
 <div class="summary-row">
   <div class="stat-card">
-    <div class="stat-value green" id="stat-done">10</div>
+    <div class="stat-value green" id="stat-done">12</div>
     <div class="stat-label">Tasks Completed</div>
   </div>
   <div class="stat-card">
@@ -160,11 +160,11 @@
     <div class="stat-label">Agents Running</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value amber" id="stat-pending">1</div>
+    <div class="stat-value amber" id="stat-pending">0</div>
     <div class="stat-label">Awaiting Action</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value violet" id="stat-drafts">1</div>
+    <div class="stat-value violet" id="stat-drafts">0</div>
     <div class="stat-label">Drafts/Planning</div>
   </div>
 </div>
@@ -184,32 +184,34 @@
       <a href="https://gregwid-ai.github.io/caip-chicago-offsite/" target="_blank" style="font-size:1rem; font-weight:700; color:#10b981; text-decoration:none; word-break:break-all;">https://gregwid-ai.github.io/caip-chicago-offsite/</a>
     </div>
     <div class="steps" style="margin-top:12px;">
-      <div class="step"><div class="step-icon step-done-icon">?</div><span class="step-text-done">Repo created: gregwid-AI/caip-chicago-offsite</span></div>
-      <div class="step"><div class="step-icon step-done-icon">?</div><span class="step-text-done">GitHub Pages enabled � building (~60s)</span></div>
-      <div class="step"><div class="step-icon step-run-icon">?</div><span class="step-text-run">Embed URL in calendar invite + team email</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Repo created: gregwid-AI/caip-chicago-offsite</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">GitHub Pages enabled and published</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">URL embedded in calendar invite and team communications</span></div>
     </div>
   </div>
 
-  <!-- Agenda Planning -->
+  <!-- Agenda Source -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">📋 Agenda Planning Phase</div>
-        <div class="card-subtitle">Cross-functional planning · Travis Coleman leading</div>
+        <div class="card-title">📋 Agenda Source of Truth</div>
+        <div class="card-subtitle">Shared Word document maintained by Travis Coleman</div>
       </div>
-      <span class="status-badge status-running"><span class="status-dot dot-running"></span> Planning</span>
+      <span class="status-badge status-done"><span class="status-dot dot-done"></span> Live</span>
+    </div>
+    <div style="margin-top:12px; padding:14px; background:rgba(99,102,241,0.08); border-radius:10px; border:1px solid rgba(99,102,241,0.2);">
+      <div style="font-size:0.78rem; color:#64748b; margin-bottom:6px;">Use this link for the latest agenda updates:</div>
+      <a href="https://microsoft-my.sharepoint.com/:w:/p/trcoleman/cQqdzZ9r-zIzRLCpFd_4UzEEEgUCUF1jchBhtIhEm2Kfq1RMmg" target="_blank" style="font-size:0.92rem; font-weight:700; color:#818cf8; text-decoration:none; word-break:break-all;">Open the shared agenda ↗</a>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-label"><span>Awaiting planning input from Travis Coleman</span><span id="planProgress">~20%</span></div>
-      <div class="progress-track"><div class="progress-fill pending" id="planProgressBar" style="width:20%"></div></div>
+      <div class="progress-label"><span>Embedded agenda replaced across the app and dashboards</span><span id="planProgress">100%</span></div>
+      <div class="progress-track"><div class="progress-fill done" id="planProgressBar" style="width:100%"></div></div>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Email sent to Travis Coleman</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Planning schedule locked: 3 meetings</span></div>
-      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Call 1: Tues/Wed Aug 4–8 (30 min)</span></div>
-      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Call 2: Tues Aug 11–15 (30 min)</span></div>
-      <div class="step"><div class="step-icon step-run-icon">●</div><span class="step-text-run">Final check-in: Fri Aug 15 (30 min)</span></div>
-      <div class="step"><div class="step-icon step-wait-icon">○</div><span class="step-text-wait">Awaiting recommendations from Travis</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Agenda tab now points to the shared Word document</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">AI helper now routes agenda questions to the shared document</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Dashboard and status assets updated with the live agenda link</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Partner resources remain in-app; agenda maintenance moves to the shared document</span></div>
     </div>
   </div>
 
@@ -288,15 +290,16 @@
     <div class="steps">
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v1: 6-tab mobile app (agenda, travel, logistics, evening)</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v2: Links, arrival instructions, succinct travel section</span></div>
-      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v3: New design, voting, editable agenda, Cabra top pick</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v3: New design, refined evening experience, Cabra confirmed</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v4: Chicago city guide tab, Fairmont info, feedback button</span></div>
+      <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">v5: Agenda replaced with shared Word doc link (single source of truth)</span></div>
       <div class="step"><div class="step-icon step-done-icon">✓</div><span class="step-text-done">Published & accessible at gregwid-ai.github.io/caip-chicago-offsite/</span></div>
     </div>
   </div>
 
 </div>
 
-<p class="section-title">Drafts Ready to Send</p>
+<p class="section-title">Communications Sent</p>
 <div class="grid">
 
   <!-- Calendar Invite -->
@@ -343,6 +346,8 @@
 <div class="log-section">
   <p class="section-title">Activity Log</p>
   <div class="log-entries" id="logEntries">
+  <div class="log-entry"><div class="log-time">5:23 PM</div><div class="log-msg"><strong>Agenda source moved to shared Word doc</strong> — embedded agenda replaced in the app and dashboards; shared link is now the single source of truth<span class="tag tag-done">Updated</span></div></div>
+  <div class="log-entry"><div class="log-time">4:55 PM</div><div class="log-msg"><strong>Agenda refreshed from LT draft</strong> — big rocks, ownership, U2C, STU/CSU, Frontier, talent, and cadence sessions merged into the live assets while preserving 3Cloud and MAQ anchor blocks<span class="tag tag-done">Updated</span></div></div>
   <div class="log-entry"><div class="log-time">1:43 PM</div><div class="log-msg"><strong>Planning schedule locked</strong> — 3 calls: Tues/Wed Aug 4–8, Tues Aug 11–15, Fri Aug 15<span class="tag tag-done">Scheduled</span></div></div>
   <div class="log-entry"><div class="log-time">1:39 PM</div><div class="log-msg"><strong>Teams message sent</strong> to group chat — summary + app, dashboard, Cytric links<span class="tag tag-done">Sent</span></div></div>
   <div class="log-entry"><div class="log-time">1:38 PM</div><div class="log-msg"><strong>Direct message sent to Anthony Cafarelli</strong> — welcome to offsite + resources<span class="tag tag-done">Sent</span></div></div>
@@ -352,7 +357,7 @@
   <div class="log-entry"><div class="log-time">1:00 PM</div><div class="log-msg"><strong>Calendar invite sent</strong> with app URL, dashboard, teams meeting link, Fairmont info<span class="tag tag-done">Live</span></div></div>
   <div class="log-entry"><div class="log-time">12:45 PM</div><div class="log-msg">App v4 published — Chicago guide + Fairmont + feedback button<span class="tag tag-done">Live</span></div></div>
   <div class="log-entry"><div class="log-time">12:30 PM</div><div class="log-msg">Dashboard published to GitHub Pages (live at .../dashboard.html)<span class="tag tag-done">Live</span></div></div>
-  <div class="log-entry"><div class="log-time">12:25 PM</div><div class="log-msg">App v3 final — indigo/violet dark palette, Cabra, voting, editable agenda<span class="tag tag-done">Done</span></div></div>
+  <div class="log-entry"><div class="log-time">12:25 PM</div><div class="log-msg">App v3 final — indigo/violet dark palette, Cabra confirmed, agenda cleaned up<span class="tag tag-done">Done</span></div></div>
   <div class="log-entry"><div class="log-time">Earlier</div><div class="log-msg"><strong>Book A Room form</strong> submitted successfully with CC# 10225172<span class="tag tag-done">Done</span></div></div>
   </div>
 </div>
